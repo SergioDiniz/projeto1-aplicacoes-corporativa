@@ -32,12 +32,17 @@ public class app {
         EnderecoDenuncia ed = new EnderecoDenuncia("pb", "cidade", "rua");
         Denuncia d = new Denuncia("buraco", EstadoDeAcompanhamento.AGUARDANDO, new Date(), ed);
         
+        
+        Administrador a = new Administrador("sergio@gmail.com", "senha");
+        
+        
         entity.getTransaction().begin();
-        entity.persist(u);
-        entity.persist(f);
-        entity.persist(p);
+        entity.persist(a);
         entity.persist(c);
         entity.persist(d);
+        entity.persist(f);
+        entity.persist(p);
+        entity.persist(u);
         entity.getTransaction().commit();
         
     }

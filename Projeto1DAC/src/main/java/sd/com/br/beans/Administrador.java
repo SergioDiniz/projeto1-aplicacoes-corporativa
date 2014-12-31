@@ -5,10 +5,23 @@
  */
 package sd.com.br.beans;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+
 /**
  *
  * @author Sergiod
  */
-public class Administrador {
+@Entity
+public class Administrador extends Pessoa implements Serializable{
+
+    public Administrador() {
+    }
+
+    public Administrador(String email, String senha) {
+        super(email, senha);
+    }
+    
+    
     
 }
