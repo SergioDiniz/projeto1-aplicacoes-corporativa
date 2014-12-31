@@ -16,24 +16,24 @@ import javax.persistence.*;
 public class Usuario extends Pessoa implements Serializable{
     
     @Embedded @Column(nullable = false)
-    private Endereco endereco;
+    private EnderecoUsuario endereco;
     @Column(nullable = false, unique = true)
     private String nickname;
 
     public Usuario() {
     }
 
-    public Usuario(Endereco endereco, String nickname, String email, String senha) {
+    public Usuario(EnderecoUsuario endereco, String nickname, String email, String senha) {
         super(email, senha);
         this.endereco = endereco;
         this.nickname = nickname;
     }
 
-    public Endereco getEndereco() {
+    public EnderecoUsuario getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
+    public void setEndereco(EnderecoUsuario endereco) {
         this.endereco = endereco;
     }
 

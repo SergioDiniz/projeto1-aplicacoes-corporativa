@@ -13,18 +13,21 @@ import javax.persistence.*;
  * @author Sergiod
  */
 @Embeddable
-public class Endereco implements Serializable{
+public class EnderecoDenuncia implements Serializable{
     @Column(nullable = false)
     private String uf;
     @Column(nullable = false)
     private String cidade;
+    @Column(nullable = false)
+    private String rua;
 
-    public Endereco() {
+    public EnderecoDenuncia() {
     }
 
-    public Endereco(String uf, String cidade) {
+    public EnderecoDenuncia(String uf, String cidade, String rua) {
         this.uf = uf;
         this.cidade = cidade;
+        this.rua = rua;
     }
 
     public String getUf() {
@@ -42,7 +45,15 @@ public class Endereco implements Serializable{
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
-    
 
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+    
+    
     
 }
