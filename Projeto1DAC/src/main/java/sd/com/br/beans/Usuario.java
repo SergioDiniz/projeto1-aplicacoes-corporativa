@@ -15,8 +15,9 @@ import javax.persistence.*;
 @Entity
 public class Usuario extends Pessoa implements Serializable{
     
-    @Embedded
+    @Embedded @Column(nullable = false)
     private Endereco endereco;
+    @Column(nullable = false, unique = true)
     private String nickname;
 
     public Usuario() {

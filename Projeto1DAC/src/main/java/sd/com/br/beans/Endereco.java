@@ -14,8 +14,9 @@ import javax.persistence.*;
  */
 @Embeddable
 public class Endereco implements Serializable{
-    
+    @Column(nullable = false)
     private String uf;
+    @Column(nullable = false)
     private String cidade;
 
     public Endereco() {
