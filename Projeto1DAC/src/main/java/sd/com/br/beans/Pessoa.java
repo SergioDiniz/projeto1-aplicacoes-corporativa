@@ -22,7 +22,7 @@ public class Pessoa implements Serializable {
     private String email;
     @Column (nullable = false)
     private String senha;
-        
+ 
     public Pessoa() {
     }
 
