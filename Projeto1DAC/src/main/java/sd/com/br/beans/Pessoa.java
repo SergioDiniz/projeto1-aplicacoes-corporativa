@@ -14,10 +14,13 @@ import javax.persistence.*;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+
 public class Pessoa implements Serializable {
     @Id @GeneratedValue
     private int id;
+    @Column (nullable = false, unique = true)
     private String email;
+    @Column (nullable = false)
     private String senha;
         
     public Pessoa() {
