@@ -21,7 +21,7 @@ public class Denuncia implements Serializable{
     private String descricao;
     @Column(nullable = false) @Enumerated(EnumType.STRING)
     private EstadoDeAcompanhamento estadoDeAcompanhamento;
-    @Column(nullable = false) @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = false) @Temporal(TemporalType.DATE)
     private Date data;
     private EnderecoDenuncia enderecoDenuncia;
 
