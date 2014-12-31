@@ -6,6 +6,7 @@
 package sd.com.br.beans;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 /**
@@ -14,6 +15,7 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Funcionario extends Pessoa implements Serializable{
+    @Column (nullable = false)
     private String nome;
 
     public Funcionario() {
