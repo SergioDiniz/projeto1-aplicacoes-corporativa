@@ -33,12 +33,15 @@ public class Cidade implements Serializable{
     public Cidade(String nome, String estado) {
         this.nome = nome;
         this.estado = estado;
+        this.prefeitura = null;
+        this.denuncias = null;
     }
 
     public Cidade(String nome, String estado, Prefeitura prefeitura) {
         this.nome = nome;
         this.estado = estado;
         this.prefeitura = prefeitura;
+        this.denuncias = null;
     }
 
     public Cidade(String nome, String estado, Prefeitura prefeitura, List<Denuncia> denuncias) {

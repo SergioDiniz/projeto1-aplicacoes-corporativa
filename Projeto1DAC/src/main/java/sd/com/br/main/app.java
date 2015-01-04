@@ -25,8 +25,8 @@ public class app {
 //        Funcionario f = new Funcionario("sergio", "sergio@gmail.com", "12345");
         
         Cidade c1 = new Cidade("Santa Helena", "PB");
-        Cidade c2 = new Cidade("Santa Helena", "PB");
-        Cidade c3 = new Cidade("Santa Helena", "PB");
+        Cidade c2 = new Cidade("Cajazeiras", "PB");
+        Cidade c3 = new Cidade("Sousa", "PB");
         
         
         
@@ -53,6 +53,7 @@ public class app {
         
 //        entity.persist(u);
         entity.getTransaction().commit();
-        
+     
+
     }
 }
