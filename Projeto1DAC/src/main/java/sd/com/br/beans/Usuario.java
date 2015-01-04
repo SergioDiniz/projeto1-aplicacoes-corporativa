@@ -6,6 +6,8 @@
 package sd.com.br.beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.*;
 
 /**
@@ -19,7 +21,10 @@ public class Usuario extends Pessoa implements Serializable{
     private EnderecoUsuario endereco;
     @Column(nullable = false, unique = true)
     private String nickname;
-
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Denuncia> denuncias;
+    
     public Usuario() {
     }
 
@@ -27,8 +32,17 @@ public class Usuario extends Pessoa implements Serializable{
         super(email, senha);
         this.endereco = endereco;
         this.nickname = nickname;
+        this.denuncias = new ArrayList<>();
     }
 
+    public List<Denuncia> getDenuncias() {
+        return denuncias;
+    }
+
+    public void setDenuncias(List<Denuncia> denuncias) {
+        this.denuncias = denuncias;
+    }
+    
     public EnderecoUsuario getEndereco() {
         return endereco;
     }

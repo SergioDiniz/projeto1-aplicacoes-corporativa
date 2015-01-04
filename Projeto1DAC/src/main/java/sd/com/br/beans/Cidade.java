@@ -6,6 +6,7 @@
 package sd.com.br.beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
@@ -34,14 +35,14 @@ public class Cidade implements Serializable{
         this.nome = nome;
         this.estado = estado;
         this.prefeitura = null;
-        this.denuncias = null;
+        this.denuncias = new ArrayList<>();
     }
 
     public Cidade(String nome, String estado, Prefeitura prefeitura) {
         this.nome = nome;
         this.estado = estado;
         this.prefeitura = prefeitura;
-        this.denuncias = null;
+        this.denuncias = new ArrayList<>();
     }
 
     public Cidade(String nome, String estado, Prefeitura prefeitura, List<Denuncia> denuncias) {

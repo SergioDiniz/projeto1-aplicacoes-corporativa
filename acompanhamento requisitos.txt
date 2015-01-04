@@ -1,0 +1,4 @@
+relacionamentos:
+OneToOne
+OneToMany
+ManyToOne

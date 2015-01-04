@@ -5,6 +5,7 @@
  */
 package sd.com.br.main;
 
+import java.util.ArrayList;
 import java.util.Date;
 import javax.persistence.*;
 import sd.com.br.beans.*;
@@ -18,9 +19,7 @@ public class app {
         EntityManager entity = Persistence.createEntityManagerFactory("jdbc:projeto1dac").createEntityManager();
         
         
-//        EnderecoUsuario e = new EnderecoUsuario("pb", "sth");
         
-//        Usuario u = new Usuario(e, "sergiod", "sergio@gmail.com", "12345");
         
 //        Funcionario f = new Funcionario("sergio", "sergio@gmail.com", "12345");
         
@@ -34,9 +33,17 @@ public class app {
         Prefeitura p = new Prefeitura(ppk, "Santa Helena - PB", "12345", c1);
         
         
-        
+
         EnderecoDenuncia ed = new EnderecoDenuncia("Centro", 560, "pedro muniz");
         Denuncia d = new Denuncia("buracos", ed, c1);
+        
+        
+        EnderecoUsuario e = new EnderecoUsuario("pb", "sth");
+        Usuario u = new Usuario(e, "sergiod", "sergio@gmail.com", "12345");        
+        ArrayList<Denuncia> denuncias = new ArrayList<>();
+        denuncias.add(d);
+        u.setDenuncias(denuncias);
+        
         
         
         Administrador a = new Administrador("sergio@gmail.com", "senha");
@@ -48,10 +55,10 @@ public class app {
         entity.persist(c2);
         entity.persist(c3);
         entity.persist(p);
-        entity.persist(d);
+//        entity.persist(d);
 //        entity.persist(f);
         
-//        entity.persist(u);
+        entity.persist(u);
         entity.getTransaction().commit();
      
 
