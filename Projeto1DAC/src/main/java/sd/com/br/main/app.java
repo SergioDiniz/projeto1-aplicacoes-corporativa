@@ -18,19 +18,25 @@ public class app {
         EntityManager entity = Persistence.createEntityManagerFactory("jdbc:projeto1dac").createEntityManager();
         
         
-        EnderecoUsuario e = new EnderecoUsuario("pb", "sth");
+//        EnderecoUsuario e = new EnderecoUsuario("pb", "sth");
         
-        Usuario u = new Usuario(e, "sergiod", "sergio@gmail.com", "12345");
+//        Usuario u = new Usuario(e, "sergiod", "sergio@gmail.com", "12345");
         
-        Funcionario f = new Funcionario("sergio", "sergio@gmail.com", "12345");
+//        Funcionario f = new Funcionario("sergio", "sergio@gmail.com", "12345");
+        
+        Cidade c1 = new Cidade("Santa Helena", "PB");
+        Cidade c2 = new Cidade("Santa Helena", "PB");
+        Cidade c3 = new Cidade("Santa Helena", "PB");
+        
+        
+        
         PrefeituraPK ppk = new PrefeituraPK("sth@gmail.com");
+        Prefeitura p = new Prefeitura(ppk, "Santa Helena - PB", "12345", c1);
         
-        Prefeitura p = new Prefeitura(ppk, "Santa Helena - PB", "12345");
         
-        Cidade c = new Cidade("Santa Helena", "PB");
         
-        EnderecoDenuncia ed = new EnderecoDenuncia("pb", "cidade", "rua");
-        Denuncia d = new Denuncia("buraco", EstadoDeAcompanhamento.AGUARDANDO, new Date(), ed);
+        EnderecoDenuncia ed = new EnderecoDenuncia("Centro", 560, "pedro muniz");
+        Denuncia d = new Denuncia("buracos", ed, c1);
         
         
         Administrador a = new Administrador("sergio@gmail.com", "senha");
@@ -38,12 +44,14 @@ public class app {
         
         entity.getTransaction().begin();
         entity.persist(a);
-        entity.persist(c);
-        entity.persist(ed);
-        entity.persist(d);
-        entity.persist(f);
+        entity.persist(c1);
+        entity.persist(c2);
+        entity.persist(c3);
         entity.persist(p);
-        entity.persist(u);
+        entity.persist(d);
+//        entity.persist(f);
+        
+//        entity.persist(u);
         entity.getTransaction().commit();
         
     }

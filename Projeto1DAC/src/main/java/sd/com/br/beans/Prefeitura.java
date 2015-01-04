@@ -20,15 +20,30 @@ public class Prefeitura implements Serializable{
     private String nome;
     @Column(nullable = false)
     private String senha;
-
+    @OneToOne(cascade = CascadeType.ALL)
+    private Cidade cidade;
+    
+    
     public Prefeitura() {
     }
 
-    public Prefeitura(PrefeituraPK prefeiturapk, String nome, String senha) {
+    public Prefeitura(PrefeituraPK prefeiturapk, String nome, String senha, Cidade cidade) {
         this.prefeiturapk = prefeiturapk;
         this.nome = nome;
         this.senha = senha;
+        this.cidade = cidade;
     }
+
+
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
+
 
     public PrefeituraPK getPrefeiturapk() {
         return prefeiturapk;

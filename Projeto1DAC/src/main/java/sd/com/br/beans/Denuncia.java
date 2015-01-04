@@ -23,18 +23,33 @@ public class Denuncia implements Serializable{
     private EstadoDeAcompanhamento estadoDeAcompanhamento;
     @Column(nullable = false) @Temporal(TemporalType.DATE)
     private Date data;
+    
+    @OneToOne(cascade = CascadeType.ALL)
     private EnderecoDenuncia enderecoDenuncia;
+    @ManyToOne
+    private Cidade cidade;
 
     public Denuncia() {
     }
 
-    public Denuncia(String descricao, EstadoDeAcompanhamento estadoDeAcompanhamento, Date data, EnderecoDenuncia enderecoDenuncia) {
+    public Denuncia(String descricao, EnderecoDenuncia enderecoDenuncia, Cidade cidade) {
         this.descricao = descricao;
-        this.estadoDeAcompanhamento = estadoDeAcompanhamento;
-        this.data = data;
         this.enderecoDenuncia = enderecoDenuncia;
+        this.cidade = cidade;
+        this.data = new Date();
+        this.estadoDeAcompanhamento = EstadoDeAcompanhamento.AGUARDANDO; 
     }
 
+    
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
+
+    
     public int getId() {
         return id;
     }

@@ -17,18 +17,18 @@ public class EnderecoDenuncia implements Serializable{
     @Id @GeneratedValue
     private int id;
     @Column(nullable = false)
-    private String uf;
+    private String bairro;
     @Column(nullable = false)
-    private String cidade;
+    private int numero;
     @Column(nullable = false)
     private String rua;
 
     public EnderecoDenuncia() {
     }
 
-    public EnderecoDenuncia(String uf, String cidade, String rua) {
-        this.uf = uf;
-        this.cidade = cidade;
+    public EnderecoDenuncia(String bairro, int numero, String rua) {
+        this.bairro = bairro;
+        this.numero = numero;
         this.rua = rua;
     }
 
@@ -40,20 +40,20 @@ public class EnderecoDenuncia implements Serializable{
         this.id = id;
     }
 
-    public String getUf() {
-        return uf;
+    public String getBairro() {
+        return bairro;
     }
 
-    public void setUf(String uf) {
-        this.uf = uf;
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
     }
 
-    public String getCidade() {
-        return cidade;
+    public int getNumero() {
+        return numero;
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     public String getRua() {
@@ -63,7 +63,6 @@ public class EnderecoDenuncia implements Serializable{
     public void setRua(String rua) {
         this.rua = rua;
     }
-    
     
     
 }
