@@ -12,8 +12,10 @@ import javax.persistence.*;
  *
  * @author Sergiod
  */
-@Embeddable
+@Entity
 public class EnderecoDenuncia implements Serializable{
+    @Id @GeneratedValue
+    private int id;
     @Column(nullable = false)
     private String uf;
     @Column(nullable = false)
@@ -28,6 +30,14 @@ public class EnderecoDenuncia implements Serializable{
         this.uf = uf;
         this.cidade = cidade;
         this.rua = rua;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUf() {

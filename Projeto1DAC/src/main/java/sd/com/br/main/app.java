@@ -39,6 +39,7 @@ public class app {
         entity.getTransaction().begin();
         entity.persist(a);
         entity.persist(c);
+        entity.persist(ed);
         entity.persist(d);
         entity.persist(f);
         entity.persist(p);

@@ -9,6 +9,7 @@
     <class>sd.com.br.beans.Cidade</class>
     <class>sd.com.br.beans.Denuncia</class>
     <class>sd.com.br.beans.Administrador</class>
+    <class>sd.com.br.beans.EnderecoDenuncia</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/projeto1dac"/>
       <property name="javax.persistence.jdbc.password" value="12345"/>
