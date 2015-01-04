@@ -2,3 +2,4 @@ relacionamentos:
 OneToOne
 OneToMany
 ManyToOne
+ManyToMany

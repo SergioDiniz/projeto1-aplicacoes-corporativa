@@ -6,7 +6,7 @@
 package sd.com.br.beans;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  *

@@ -18,7 +18,7 @@ public class PrefeituraPK implements Serializable{
     @Column(nullable = false, unique = true)
     private String email;
     @GeneratedValue
-    private String id;
+    private int id;
 
     public PrefeituraPK() {
     }
@@ -35,11 +35,11 @@ public class PrefeituraPK implements Serializable{
         this.email = email;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

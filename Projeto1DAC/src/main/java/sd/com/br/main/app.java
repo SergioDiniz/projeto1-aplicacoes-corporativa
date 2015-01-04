@@ -21,7 +21,7 @@ public class app {
         
         
         
-//        Funcionario f = new Funcionario("sergio", "sergio@gmail.com", "12345");
+        
         
         Cidade c1 = new Cidade("Santa Helena", "PB");
         Cidade c2 = new Cidade("Cajazeiras", "PB");
@@ -31,6 +31,25 @@ public class app {
         
         PrefeituraPK ppk = new PrefeituraPK("sth@gmail.com");
         Prefeitura p = new Prefeitura(ppk, "Santa Helena - PB", "12345", c1);
+        
+        
+        Funcionario f = new Funcionario("sergio","12123123-23" , "sergio@gmail.com", "12345");
+        
+        
+        
+        
+        ArrayList<Funcionario> funcionarios = new ArrayList<>();
+        funcionarios.add(f);
+        
+        ArrayList<Prefeitura> prefeituras = new ArrayList<>();
+        prefeituras.add(p);
+        
+        
+        f.setPrefeituras(prefeituras);
+        p.setFuncionarios(funcionarios);
+        
+        
+        
         
         
 
@@ -56,7 +75,7 @@ public class app {
         entity.persist(c3);
         entity.persist(p);
 //        entity.persist(d);
-//        entity.persist(f);
+        entity.persist(f);
         
         entity.persist(u);
         entity.getTransaction().commit();

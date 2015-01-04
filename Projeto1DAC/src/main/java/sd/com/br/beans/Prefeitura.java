@@ -6,6 +6,7 @@
 package sd.com.br.beans;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 
 /**
@@ -23,6 +24,8 @@ public class Prefeitura implements Serializable{
     @OneToOne(cascade = CascadeType.ALL)
     private Cidade cidade;
     
+    @ManyToMany
+    private List<Funcionario> funcionarios;
     
     public Prefeitura() {
     }
@@ -34,7 +37,21 @@ public class Prefeitura implements Serializable{
         this.cidade = cidade;
     }
 
+    public Prefeitura(PrefeituraPK prefeiturapk, String nome, String senha, Cidade cidade, List<Funcionario> funcionarios) {
+        this.prefeiturapk = prefeiturapk;
+        this.nome = nome;
+        this.senha = senha;
+        this.cidade = cidade;
+        this.funcionarios = funcionarios;
+    }
 
+    public List<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
+
+    public void setFuncionarios(List<Funcionario> funcionarios) {
+        this.funcionarios = funcionarios;
+    }
 
     public Cidade getCidade() {
         return cidade;
