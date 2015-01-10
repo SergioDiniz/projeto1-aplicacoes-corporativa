@@ -23,9 +23,9 @@ public class Prefeitura implements Serializable{
     private String email;
     @Column(nullable = false)
     private String senha;
+    
     @OneToOne(cascade = CascadeType.ALL)
     private Cidade cidade;
-    
     @ManyToMany
     private List<Funcionario> funcionarios;
     

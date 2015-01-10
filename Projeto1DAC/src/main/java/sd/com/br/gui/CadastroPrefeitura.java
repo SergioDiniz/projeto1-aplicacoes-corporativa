@@ -8,6 +8,8 @@ package sd.com.br.gui;
 import javax.swing.JOptionPane;
 import sd.com.br.beans.Cidade;
 import sd.com.br.beans.CidadePK;
+import sd.com.br.beans.Funcionario;
+import sd.com.br.beans.Prefeitura;
 import sd.com.br.dao.Dao;
 import sd.com.br.dao.DaoCidade;
 
@@ -215,18 +217,24 @@ public class CadastroPrefeitura extends javax.swing.JFrame {
             
             int opcao = 1;
             if (pesquisaC == null){
-                opcao = JOptionPane.showConfirmDialog(null, "Cidade não cadastrada \nDeseja cadastrar cidade agora?", "", JOptionPane.YES_NO_OPTION);
+                opcao = JOptionPane.showConfirmDialog(null, "Cidade não cadastrada. \nDeseja cadastrar cidade agora?", "", JOptionPane.YES_NO_OPTION);
                 
                 if(opcao == 0){
                     CidadePK cidadePK = new CidadePK(jTNomeCidade.getText(), jTSiglaEstado.getText());
                     Cidade cidade = new Cidade(cidadePK);
                     dao.salvar(cidade);
+                    pesquisaC = cidade;
                 }
                 
             }
             
             if (pesquisaC != null || opcao == 0){
-                
+                Prefeitura prefeitura = new Prefeitura();
+                prefeitura.setNome(jTNome.getText());
+                prefeitura.setEmail(jTEmail.getText());
+                prefeitura.setSenha(jTSenha.getText());
+                prefeitura.setCidade(pesquisaC);
+                dao.atualizar(prefeitura);
             }
             
             

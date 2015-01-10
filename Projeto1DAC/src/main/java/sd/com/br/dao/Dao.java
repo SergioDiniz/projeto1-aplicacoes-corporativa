@@ -23,6 +23,12 @@ public class Dao {
         entity.persist(object);
         entity.getTransaction().commit();
     }
+    
+        public void atualizar(Object object){
+        entity.getTransaction().begin();
+        entity.merge(object);
+        entity.getTransaction().commit();
+    }
 
     
     

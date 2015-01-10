@@ -68,7 +68,7 @@ public class app {
 //        
 //        
 //        Administrador a = new Administrador("sergio@gmail.com", "senha");
-//        Dao dao = new Dao();
+        Dao dao = new Dao();
 //        dao.salvar(a);
         
 //        entity.getTransaction().begin();
@@ -85,25 +85,38 @@ public class app {
      
 
         
-        CidadePK cidadePK = new CidadePK("Santa Helena", "PB");
-        Cidade cidade = new Cidade(cidadePK);
-        
-        
-        Prefeitura prefeitura = new Prefeitura("nome", "email", "senha", cidade);
-        
+//        CidadePK cidadePK = new CidadePK("Santa Helena", "PB");
+//        Cidade cidade = new Cidade(cidadePK);
+//        
+//        
+//        Prefeitura prefeitura = new Prefeitura("nome", "email", "senha", cidade);
+//        
         
 //        entity.getTransaction().begin();
 //        entity.persist(cidade);
 //        entity.persist(prefeitura);
 //        entity.getTransaction().commit();
         
-        DaoCidade d = new DaoCidade();
-        Cidade c2 = d.pesquisarCidade("Santa Helena", "PB");
-        if(c2 == null){
-            System.out.println("não cadastrado");
-        }else{
-        System.out.println(c2.getCidadePK().getNomeCidade());
-        }
+        DaoCidade dc = new DaoCidade();
+//        Cidade c2 = d.pesquisarCidade("Santa Helena", "PB");
+//        
+//        
+//        
+//        
+//        
+//        if(c2 == null){
+//            System.out.println("não cadastrado");
+//        }else{
+//        System.out.println(c2.getCidadePK().getNomeCidade());
+//        }
+        
+        
+        Cidade c3 = dc.pesquisarCidade("123", "123");
+        Prefeitura prefeitura = new Prefeitura("nome1", "email1", "senha1", c3);
+        
+        entity.getTransaction().begin();
+        entity.merge(prefeitura);
+        entity.getTransaction().commit();
         
         
         
