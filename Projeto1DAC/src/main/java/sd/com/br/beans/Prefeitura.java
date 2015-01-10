@@ -15,10 +15,12 @@ import javax.persistence.*;
  */
 @Entity
 public class Prefeitura implements Serializable{
-    @EmbeddedId
-    private PrefeituraPK prefeiturapk;
+    @Id @GeneratedValue
+    private int id;
     @Column(nullable = false)
     private String nome;
+    @Column(nullable = false, unique = true)
+    private String email;
     @Column(nullable = false)
     private String senha;
     @OneToOne(cascade = CascadeType.ALL)
@@ -30,44 +32,26 @@ public class Prefeitura implements Serializable{
     public Prefeitura() {
     }
 
-    public Prefeitura(PrefeituraPK prefeiturapk, String nome, String senha, Cidade cidade) {
-        this.prefeiturapk = prefeiturapk;
+    public Prefeitura(String nome, String email, String senha) {
         this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+    }
+    
+    
+    public Prefeitura(String nome, String email, String senha, Cidade cidade) {
+        this.nome = nome;
+        this.email = email;
         this.senha = senha;
         this.cidade = cidade;
     }
 
-    public Prefeitura(PrefeituraPK prefeiturapk, String nome, String senha, Cidade cidade, List<Funcionario> funcionarios) {
-        this.prefeiturapk = prefeiturapk;
-        this.nome = nome;
-        this.senha = senha;
-        this.cidade = cidade;
-        this.funcionarios = funcionarios;
+    public int getId() {
+        return id;
     }
 
-    public List<Funcionario> getFuncionarios() {
-        return funcionarios;
-    }
-
-    public void setFuncionarios(List<Funcionario> funcionarios) {
-        this.funcionarios = funcionarios;
-    }
-
-    public Cidade getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(Cidade cidade) {
-        this.cidade = cidade;
-    }
-
-
-    public PrefeituraPK getPrefeiturapk() {
-        return prefeiturapk;
-    }
-
-    public void setPrefeiturapk(PrefeituraPK prefeiturapk) {
-        this.prefeiturapk = prefeiturapk;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -78,6 +62,14 @@ public class Prefeitura implements Serializable{
         this.nome = nome;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getSenha() {
         return senha;
     }
@@ -86,8 +78,22 @@ public class Prefeitura implements Serializable{
         this.senha = senha;
     }
 
- 
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
+
+    public List<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
+
+    public void setFuncionarios(List<Funcionario> funcionarios) {
+        this.funcionarios = funcionarios;
+    }
     
     
-    
+
 }

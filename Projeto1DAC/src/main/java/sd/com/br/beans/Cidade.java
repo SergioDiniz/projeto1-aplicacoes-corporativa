@@ -16,12 +16,9 @@ import javax.persistence.*;
  */
 @Entity
 public class Cidade implements Serializable{
-    @Id @GeneratedValue
-    private int id;
-    @Column (nullable = false)
-    private String nome;
-    @Column (nullable = false)
-    private String estado;
+
+    @EmbeddedId
+    private CidadePK CidadePK;
     
     @OneToOne(mappedBy = "cidade")
     private Prefeitura prefeitura;
@@ -31,25 +28,31 @@ public class Cidade implements Serializable{
     public Cidade() {
     }
 
-    public Cidade(String nome, String estado) {
-        this.nome = nome;
-        this.estado = estado;
-        this.prefeitura = null;
+    public Cidade(CidadePK CidadePK) {
+        this.CidadePK = CidadePK;
         this.denuncias = new ArrayList<>();
     }
-
-    public Cidade(String nome, String estado, Prefeitura prefeitura) {
-        this.nome = nome;
-        this.estado = estado;
-        this.prefeitura = prefeitura;
-        this.denuncias = new ArrayList<>();
-    }
-
-    public Cidade(String nome, String estado, Prefeitura prefeitura, List<Denuncia> denuncias) {
-        this.nome = nome;
-        this.estado = estado;
+    
+    public Cidade(CidadePK CidadePK, Prefeitura prefeitura, List<Denuncia> denuncias) {
+        this.CidadePK = CidadePK;
         this.prefeitura = prefeitura;
         this.denuncias = denuncias;
+    }
+
+    public CidadePK getCidadePK() {
+        return CidadePK;
+    }
+
+    public void setCidadePK(CidadePK CidadePK) {
+        this.CidadePK = CidadePK;
+    }
+
+    public Prefeitura getPrefeitura() {
+        return prefeitura;
+    }
+
+    public void setPrefeitura(Prefeitura prefeitura) {
+        this.prefeitura = prefeitura;
     }
 
     public List<Denuncia> getDenuncias() {
@@ -58,39 +61,6 @@ public class Cidade implements Serializable{
 
     public void setDenuncias(List<Denuncia> denuncias) {
         this.denuncias = denuncias;
-    }
-    
-    public Prefeitura getPrefeitura() {
-        return prefeitura;
-    }
-
-    public void setPrefeitura(Prefeitura prefeitura) {
-        this.prefeitura = prefeitura;
-    }
-    
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
     }
     
     

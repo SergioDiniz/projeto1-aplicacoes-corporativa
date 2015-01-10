@@ -10,5 +10,6 @@ package sd.com.br.beans;
  * @author Sergiod
  */
 public enum EstadoDeAcompanhamento {
-    AGUARDANDO, ATENDIDA, EM_TRABALHO, CONTEUDO_INADEQUADO
+    AGUARDANDO, ATENDIDA, EM_TRABALHO, VERIFICADO
+    
 }
