@@ -63,7 +63,7 @@ public class CadastroCidade extends javax.swing.JFrame {
         jBCadastrar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jBCadastrar.setForeground(new java.awt.Color(0, 51, 255));
         jBCadastrar.setText("Cadastrar");
-        jBCadastrar.setPreferredSize(new java.awt.Dimension(95, 30));
+        jBCadastrar.setPreferredSize(new java.awt.Dimension(95, 33));
         jBCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBCadastrarActionPerformed(evt);
@@ -119,7 +119,7 @@ public class CadastroCidade extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBCancelar))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

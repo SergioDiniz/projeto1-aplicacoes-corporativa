@@ -13,6 +13,7 @@ import sd.com.br.gui.Cadastros.CadastroPrefeitura;
 import sd.com.br.gui.Cadastros.CadastroFuncionario;
 import sd.com.br.gui.Cadastros.CadastroCidade;
 import javax.swing.JDialog;
+import sd.com.br.gui.login.LoginPrefeitura;
 import sd.com.br.gui.login.LoginUsuario;
 
 /**
@@ -122,6 +123,11 @@ public class Inicio extends javax.swing.JFrame {
         jMLogin.add(jMLoginUsuario);
 
         jMLoginPrefeitura.setText("Prefeitura");
+        jMLoginPrefeitura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMLoginPrefeituraActionPerformed(evt);
+            }
+        });
         jMLogin.add(jMLoginPrefeitura);
 
         jMLoginFuncionario.setText("Funcionario");
@@ -206,6 +212,17 @@ public class Inicio extends javax.swing.JFrame {
         loginUsuario.setVisible(true);
         
     }//GEN-LAST:event_jMLoginUsuarioActionPerformed
+
+    private void jMLoginPrefeituraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMLoginPrefeituraActionPerformed
+        // TODO add your handling code here:
+        
+        LoginPrefeitura loginPrefeitura = new LoginPrefeitura(this);
+        loginPrefeitura.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        loginPrefeitura.setResizable(false);
+        loginPrefeitura.setLocationRelativeTo(null);
+        loginPrefeitura.setVisible(true);
+        
+    }//GEN-LAST:event_jMLoginPrefeituraActionPerformed
 
     /**
      * @param args the command line arguments

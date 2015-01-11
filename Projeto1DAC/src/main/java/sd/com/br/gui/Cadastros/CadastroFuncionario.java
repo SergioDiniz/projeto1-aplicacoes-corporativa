@@ -78,7 +78,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jBCadastrar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jBCadastrar.setForeground(new java.awt.Color(0, 51, 255));
         jBCadastrar.setText("Cadastrar");
-        jBCadastrar.setPreferredSize(new java.awt.Dimension(95, 30));
+        jBCadastrar.setPreferredSize(new java.awt.Dimension(95, 33));
         jBCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBCadastrarActionPerformed(evt);
