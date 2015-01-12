@@ -13,6 +13,7 @@ import sd.com.br.gui.Cadastros.CadastroPrefeitura;
 import sd.com.br.gui.Cadastros.CadastroFuncionario;
 import sd.com.br.gui.Cadastros.CadastroCidade;
 import javax.swing.JDialog;
+import sd.com.br.gui.login.LoginFuncionario;
 import sd.com.br.gui.login.LoginPrefeitura;
 import sd.com.br.gui.login.LoginUsuario;
 
@@ -29,8 +30,9 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         jPCentral.setBackground(Color.WHITE);
-        Icon icon = new ImageIcon("src/main/java/sd/com/br/gui/img/wallpaper01.jpg");
+        Icon icon = new ImageIcon("src/main/java/sd/com/br/gui/img/wallpaper02.png");
         jLBackground.setIcon(icon);
+        
 
     }
 
@@ -66,13 +68,16 @@ public class Inicio extends javax.swing.JFrame {
         );
         jPCentralLayout.setVerticalGroup(
             jPCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLBackground, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+            .addComponent(jLBackground, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
         );
 
-        jMenuBar1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jMenuBar1.setBorder(null);
+        jMenuBar1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(94, 25));
 
         jMCadastro.setText("Cadastro");
 
+        jMCadastroUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMCadastroUsuario.setText("Usuario");
         jMCadastroUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +91,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMCadastro.add(jMCadastroUsuario);
 
+        jMCadastroCidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMCadastroCidade.setText("Cidade");
         jMCadastroCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +100,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMCadastro.add(jMCadastroCidade);
 
+        jMCadastroPrefeitura.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMCadastroPrefeitura.setText("Prefeitura");
         jMCadastroPrefeitura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +109,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMCadastro.add(jMCadastroPrefeitura);
 
+        jMCadsatroFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMCadsatroFuncionario.setText("Funcionario");
         jMCadsatroFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +122,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMLogin.setText("Login");
 
+        jMLoginUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMLoginUsuario.setText("Usuario");
         jMLoginUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +131,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMLogin.add(jMLoginUsuario);
 
+        jMLoginPrefeitura.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMLoginPrefeitura.setText("Prefeitura");
         jMLoginPrefeitura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,7 +140,13 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMLogin.add(jMLoginPrefeitura);
 
+        jMLoginFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMLoginFuncionario.setText("Funcionario");
+        jMLoginFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMLoginFuncionarioActionPerformed(evt);
+            }
+        });
         jMLogin.add(jMLoginFuncionario);
 
         jMenuBar1.add(jMLogin);
@@ -223,6 +239,17 @@ public class Inicio extends javax.swing.JFrame {
         loginPrefeitura.setVisible(true);
         
     }//GEN-LAST:event_jMLoginPrefeituraActionPerformed
+
+    private void jMLoginFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMLoginFuncionarioActionPerformed
+        // TODO add your handling code here:
+        
+        LoginFuncionario loginFuncionario = new LoginFuncionario(this);
+        loginFuncionario.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        loginFuncionario.setResizable(false);
+        loginFuncionario.setLocationRelativeTo(null);
+        loginFuncionario.setVisible(true);
+        
+    }//GEN-LAST:event_jMLoginFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
