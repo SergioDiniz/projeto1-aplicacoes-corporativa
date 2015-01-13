@@ -38,4 +38,20 @@ public class DaoFuncionario {
         
         return null;
     }
+    
+    public Funcionario buscarPorCPF(String cpf){
+        
+        Query query = entity.createQuery("SELECT f FROM Funcionario f WHERE f.cpf = :cpf");
+              query.setParameter("cpf", cpf);
+              
+        List<Funcionario> f = query.getResultList();
+        
+        if(f.size() > 0){
+            return f.get(0);
+        }
+        
+        return null;        
+        
+    }
+    
 }
