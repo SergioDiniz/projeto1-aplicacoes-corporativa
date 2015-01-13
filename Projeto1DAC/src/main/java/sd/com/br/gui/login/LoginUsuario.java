@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import sd.com.br.beans.Usuario;
 import sd.com.br.dao.DaoUsuario;
 import sd.com.br.gui.Inicio;
+import sd.com.br.gui.ambiente.usuario.AmbienteUsuario;
 
 /**
  *
@@ -164,9 +165,10 @@ public class LoginUsuario extends javax.swing.JFrame {
             Usuario u = du.login(jTEmail.getText(), jPSenha.getText());
             
                 if (u != null){
-                    JOptionPane.showMessageDialog(rootPane, "Bem-Vindo!");
                     this.dispose();
                     inicio.dispose();
+                    AmbienteUsuario au = new AmbienteUsuario(u);
+                    au.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(rootPane, "Email ou Senha incorretos!");
                 }

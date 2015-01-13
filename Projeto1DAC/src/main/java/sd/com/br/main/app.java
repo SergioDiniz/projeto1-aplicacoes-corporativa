@@ -7,6 +7,7 @@ package sd.com.br.main;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 import sd.com.br.beans.*;
 import sd.com.br.dao.*;
@@ -21,12 +22,13 @@ public class app {
         EntityManager entity = Persistence.createEntityManagerFactory("jdbc:projeto1dac").createEntityManager();
         DaoUsuario du = new DaoUsuario();
         DaoFuncionario df = new DaoFuncionario();
+        DaoDenuncia dd = new DaoDenuncia();
         Dao dao = new Dao();
 //        EnderecoUsuario eu1 = new EnderecoUsuario("pb", "santa helena");
 //        Usuario u1 = new Usuario(eu1, "sd", "sergio@gmail.com", "123");
 //      
-//        CidadePK cpk1 = new CidadePK("12345", "12345");
-//        Cidade c1 = new Cidade(cpk1);
+        CidadePK cpk1 = new CidadePK("12345", "12345");
+        Cidade c1 = new Cidade(cpk1);
 //        
 //        Prefeitura p1 = new Prefeitura("12345", "12345", "12345", c1);
 //        
@@ -36,19 +38,24 @@ public class app {
 //        
 //        p1.setFuncionarios(lf1);
 //        
-//        entity.getTransaction().begin();
-//        entity.persist(f1);
-//        entity.persist(p1);
-//        entity.getTransaction().commit();
+//        EnderecoDenuncia ed1 = new EnderecoDenuncia("bairo1", 1, "rua1");
+//        Denuncia d1 = new Denuncia("descricao1", ed1, c1);
+//        
+//        EnderecoDenuncia ed2 = new EnderecoDenuncia("bairo2", 1, "rua2");
+//        Denuncia d2 = new Denuncia("descricao1", ed2, c1);
+//        
+        entity.getTransaction().begin();
+        
+        entity.getTransaction().commit();
         
         
-        Funcionario f = df.login("f2@gmail.com", "1234", "12345", "12345");
-        
-        if (f != null){
-            System.out.println("usuario logado!\nBem Vindo " + f.getCpf());
-        } else {
-            System.out.println("usuario ou senha invalidos.");
-        }
+//        List<Denuncia> denuncias = dd.pesquisarPorCidade("12345", "12345");
+//        
+//        if (denuncias != null){
+//            System.out.println("achamos: " + denuncias.size() + " denuncias.");
+//        } else {
+//            System.out.println("sem resultado.");
+//        }
         
         
         

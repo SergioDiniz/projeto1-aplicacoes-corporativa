@@ -5,6 +5,7 @@
  */
 package sd.com.br.dao;
 
+import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import sd.com.br.beans.Cidade;
@@ -24,11 +25,14 @@ public class Dao {
         entity.getTransaction().commit();
     }
     
-        public void atualizar(Object object){
+    public void atualizar(Object object){
         entity.getTransaction().begin();
         entity.merge(object);
         entity.getTransaction().commit();
     }
+    
+    
+
 
     
     
