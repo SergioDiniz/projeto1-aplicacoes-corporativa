@@ -7,6 +7,7 @@ package sd.com.br.gui.ambiente.prefeitura;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import sd.com.br.beans.Prefeitura;
 import sd.com.br.gui.Inicio;
 
 /**
@@ -18,8 +19,9 @@ public class AmbientePrefeitura extends javax.swing.JFrame {
     /**
      * Creates new form AmbientePrefeitura
      */
-    
-    public AmbientePrefeitura() {
+    private Prefeitura prefeitura;
+    public AmbientePrefeitura(Prefeitura prefeitura) {
+        this.prefeitura = prefeitura;
         initComponents();
         iniciarBotoes();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -172,7 +174,7 @@ public class AmbientePrefeitura extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         jPAreaTroca.removeAll();
-        NovoFuncionario nf = new NovoFuncionario();
+        NovoFuncionario nf = new NovoFuncionario(prefeitura);
         nf.setVisible(true);
         nf.setBounds(0,0,1366,600);
         jPAreaTroca.add(nf);
@@ -226,7 +228,7 @@ public class AmbientePrefeitura extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AmbientePrefeitura().setVisible(true);
+                new AmbientePrefeitura(new Prefeitura()).setVisible(true);
             }
         });
     }

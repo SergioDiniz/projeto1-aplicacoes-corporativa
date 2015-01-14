@@ -5,9 +5,13 @@
  */
 package sd.com.br.gui.ambiente.prefeitura;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import sd.com.br.beans.Funcionario;
+import sd.com.br.beans.Prefeitura;
+import sd.com.br.dao.Dao;
 import sd.com.br.dao.DaoFuncionario;
+import sd.com.br.dao.DaoPrefeitura;
 
 /**
  *
@@ -18,7 +22,11 @@ public class NovoFuncionario extends javax.swing.JPanel {
     /**
      * Creates new form NovoFuncionario
      */
-    public NovoFuncionario() {
+    
+    private Prefeitura prefeitura;
+    
+    public NovoFuncionario(Prefeitura prefeitura) {
+        this.prefeitura = prefeitura;
         initComponents();
         init();
     }
@@ -100,9 +108,19 @@ public class NovoFuncionario extends javax.swing.JPanel {
 
         jBCadastrar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBCadastrar.setText("Cadastrar");
+        jBCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCadastrarActionPerformed(evt);
+            }
+        });
 
         jBVincular.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBVincular.setText("Vincular");
+        jBVincular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBVincularActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPDadosCompletosLayout = new javax.swing.GroupLayout(jPDadosCompletos);
         jPDadosCompletos.setLayout(jPDadosCompletosLayout);
@@ -241,7 +259,7 @@ public class NovoFuncionario extends javax.swing.JPanel {
             
             
         }else{
-            
+            JOptionPane.showMessageDialog(jPanel1, "Preencha todos os campos corretamente!");
         }
         
         revalidate();
@@ -249,6 +267,52 @@ public class NovoFuncionario extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_jBBuscarActionPerformed
+
+    private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
+        // TODO add your handling code here:
+        
+        
+        if((jTCPF.getText().length() > 0) && (jTNome.getText().length() > 0) && (jTEmail.getText().length() > 0) &&
+                (jTSenha.getText().length() > 0)){
+            
+            Dao dao = new Dao();
+            DaoPrefeitura dp = new DaoPrefeitura();
+            Funcionario f = new Funcionario(jTNome.getText(), jTCPF.getText(), jTEmail.getText(), jTSenha.getText());
+            
+            dao.salvar(f);
+            
+            String resultado = dp.cadastrarNaPrefeitura(prefeitura, f);
+            JOptionPane.showMessageDialog(jPanel1, resultado);
+            
+            
+        } else {
+            JOptionPane.showMessageDialog(jPanel1, "Preencha todos os campos corretamente!");
+        }
+        
+    }//GEN-LAST:event_jBCadastrarActionPerformed
+
+    private void jBVincularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVincularActionPerformed
+        // TODO add your handling code here:
+        
+            if(jTCPF.getText().length() > 0){
+                
+                DaoFuncionario df = new DaoFuncionario();
+                DaoPrefeitura dp = new DaoPrefeitura();
+                
+                Funcionario f = df.buscarPorCPF(jTCPF.getText());
+                
+                String resultado = dp.vincular(prefeitura, f);
+                JOptionPane.showMessageDialog(jPanel1, resultado);   
+                
+            } else {
+                JOptionPane.showMessageDialog(jPanel1, "Preencha todos os campos corretamente!");   
+            }
+            
+            
+        
+        
+        
+    }//GEN-LAST:event_jBVincularActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

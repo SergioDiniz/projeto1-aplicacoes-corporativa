@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import sd.com.br.beans.Prefeitura;
 import sd.com.br.dao.DaoPrefeitura;
 import sd.com.br.gui.Inicio;
+import sd.com.br.gui.ambiente.prefeitura.AmbientePrefeitura;
 
 /**
  *
@@ -161,6 +162,7 @@ public class LoginPrefeitura extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Bem-Vindo!");
                 this.dispose();
                 inicio.dispose();
+                new AmbientePrefeitura(p).setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Email ou Senha incorretos!");
             }

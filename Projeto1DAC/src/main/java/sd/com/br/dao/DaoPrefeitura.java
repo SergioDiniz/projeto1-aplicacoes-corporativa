@@ -9,6 +9,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import sd.com.br.beans.Funcionario;
 import sd.com.br.beans.Prefeitura;
 
 /**
@@ -33,6 +34,50 @@ public class DaoPrefeitura {
         }
 
         return null;
+        
+    }
+    
+    
+    public String cadastrarNaPrefeitura(Prefeitura prefeitura, Funcionario funcionario){
+        
+        try {
+
+            prefeitura.getFuncionarios().add(funcionario);
+        
+            entity.getTransaction().begin();
+            entity.merge(prefeitura);
+            entity.getTransaction().commit();
+            
+            return "Cadastrado com Sucesso";
+            
+        } catch (Exception e) {
+        }
+        
+        
+        return "ERRO!";
+        
+    }
+    
+    
+    public String vincular(Prefeitura prefeitura, Funcionario funcionario){
+        
+        Query query = entity.createQuery("SELECT f FROM Prefeitura p JOIN p.funcionarios f WHERE p.email = :pEmail AND f.cpf = :fCpf");
+              query.setParameter("pEmail", prefeitura.getEmail());
+              query.setParameter("fCpf", funcionario.getCpf());
+              
+        List fs = query.getResultList();
+        
+        if (fs.size() > 0){
+            return "Funcionario ja esta vinculado na prefeitura!";
+        } else {
+            cadastrarNaPrefeitura(prefeitura, funcionario);
+        }
+        
+        
+        
+        
+        
+        return "ERRO!";
         
     }
     
