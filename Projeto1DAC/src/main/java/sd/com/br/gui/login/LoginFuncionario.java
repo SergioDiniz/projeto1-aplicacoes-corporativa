@@ -8,9 +8,12 @@ package sd.com.br.gui.login;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import sd.com.br.beans.Cidade;
 import sd.com.br.beans.Funcionario;
+import sd.com.br.dao.DaoCidade;
 import sd.com.br.dao.DaoFuncionario;
 import sd.com.br.gui.Inicio;
+import sd.com.br.gui.ambiente.funcionario.AmbienteFuncionario;
 
 /**
  *
@@ -196,13 +199,14 @@ public class LoginFuncionario extends javax.swing.JFrame {
                 && (jTSiglaEstado.getText().length() > 0)){
 
             DaoFuncionario df = new DaoFuncionario();
-            
+            DaoCidade dc = new DaoCidade();
             Funcionario f = df.login(jTEmail.getText(), jPSenha.getText(), jTCidade.getText(), jTSiglaEstado.getText());
-
+            Cidade c = dc.pesquisarCidade(jTCidade.getText(), jTSiglaEstado.getText());
             if (f != null){
                 JOptionPane.showMessageDialog(rootPane, "Bem-Vindo!");
                 this.dispose();
                 inicio.dispose();
+                new AmbienteFuncionario(f, c).setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Email ou Senha incorretos!");
             }

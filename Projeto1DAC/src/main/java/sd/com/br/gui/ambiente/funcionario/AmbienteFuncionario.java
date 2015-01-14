@@ -5,6 +5,11 @@
  */
 package sd.com.br.gui.ambiente.funcionario;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import sd.com.br.beans.Cidade;
+import sd.com.br.beans.Funcionario;
+
 /**
  *
  * @author SergioD
@@ -14,9 +19,29 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
     /**
      * Creates new form AmbienteFuncionario
      */
-    public AmbienteFuncionario() {
+    private Cidade cidade;
+    private Funcionario funcionario;
+    
+    public AmbienteFuncionario(Funcionario funcionario, Cidade cidade) {
+        this.funcionario = funcionario;
+        this.cidade = cidade;
         initComponents();
+        iniciarBotoes();
         this.setExtendedState(MAXIMIZED_BOTH);
+    }
+    
+    public void iniciarBotoes(){
+        
+        Icon iconAcompanhar = new ImageIcon("src/main/java/sd/com/br/gui/img/acompanharDenuncia.jpg");
+        Icon iconAtualizar = new ImageIcon("src/main/java/sd/com/br/gui/img/atualizarDenuncia.jpg");
+        Icon iconDenunciar = new ImageIcon("src/main/java/sd/com/br/gui/img/denunciarDenuncia.jpg");
+        Icon iconSair = new ImageIcon("src/main/java/sd/com/br/gui/img/sair.jpg");
+        
+        jBAcompanharDenuncias.setIcon(iconAcompanhar);
+        jBAtualizarSituacao.setIcon(iconAtualizar);
+        jBDenunciarDenuncia.setIcon(iconDenunciar);
+        jBSair.setIcon(iconSair); 
+        
     }
 
     /**
@@ -29,21 +54,83 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jPAreaMenu = new javax.swing.JPanel();
+        jBAcompanharDenuncias = new javax.swing.JButton();
+        jBAtualizarSituacao = new javax.swing.JButton();
+        jBDenunciarDenuncia = new javax.swing.JButton();
+        jBSair = new javax.swing.JButton();
+        jPareaTroca = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 695, Short.MAX_VALUE)
+        jPAreaMenu.setBackground(new java.awt.Color(255, 255, 255));
+
+        jBAcompanharDenuncias.setToolTipText("Novo Funcionario");
+        jBAcompanharDenuncias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBAcompanharDenuncias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAcompanharDenunciasActionPerformed(evt);
+            }
+        });
+
+        jBAtualizarSituacao.setToolTipText("Novo Funcionario");
+        jBAtualizarSituacao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBAtualizarSituacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAtualizarSituacaoActionPerformed(evt);
+            }
+        });
+
+        jBDenunciarDenuncia.setToolTipText("Novo Funcionario");
+        jBDenunciarDenuncia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBDenunciarDenuncia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBDenunciarDenunciaActionPerformed(evt);
+            }
+        });
+
+        jBSair.setToolTipText("Novo Funcionario");
+        jBSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSairActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPAreaMenuLayout = new javax.swing.GroupLayout(jPAreaMenu);
+        jPAreaMenu.setLayout(jPAreaMenuLayout);
+        jPAreaMenuLayout.setHorizontalGroup(
+            jPAreaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPAreaMenuLayout.createSequentialGroup()
+                .addComponent(jBAcompanharDenuncias, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jBAtualizarSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jBDenunciarDenuncia, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
+                .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 64, Short.MAX_VALUE)
+        jPAreaMenuLayout.setVerticalGroup(
+            jPAreaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jBAcompanharDenuncias, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jBAtualizarSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jBDenunciarDenuncia, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jPareaTroca.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPareaTrocaLayout = new javax.swing.GroupLayout(jPareaTroca);
+        jPareaTroca.setLayout(jPareaTrocaLayout);
+        jPareaTrocaLayout.setHorizontalGroup(
+            jPareaTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPareaTrocaLayout.setVerticalGroup(
+            jPareaTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 313, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -52,15 +139,19 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPAreaMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPareaTroca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(357, Short.MAX_VALUE))
+                .addComponent(jPAreaMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPareaTroca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -76,6 +167,31 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBAcompanharDenunciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAcompanharDenunciasActionPerformed
+        // TODO add your handling code here:
+        
+        jPareaTroca.removeAll();
+        AcompanharDenuncia ad = new AcompanharDenuncia(cidade);
+        ad.setVisible(true);
+        ad.setBounds(0,0,1366,600);
+        jPareaTroca.add(ad);
+        revalidate();
+        repaint();
+
+    }//GEN-LAST:event_jBAcompanharDenunciasActionPerformed
+
+    private void jBAtualizarSituacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAtualizarSituacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBAtualizarSituacaoActionPerformed
+
+    private void jBDenunciarDenunciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDenunciarDenunciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBDenunciarDenunciaActionPerformed
+
+    private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -107,13 +223,18 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AmbienteFuncionario().setVisible(true);
+                new AmbienteFuncionario(new Funcionario(), new Cidade()).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBAcompanharDenuncias;
+    private javax.swing.JButton jBAtualizarSituacao;
+    private javax.swing.JButton jBDenunciarDenuncia;
+    private javax.swing.JButton jBSair;
+    private javax.swing.JPanel jPAreaMenu;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPareaTroca;
     // End of variables declaration//GEN-END:variables
 }
