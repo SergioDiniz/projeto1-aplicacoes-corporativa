@@ -192,10 +192,27 @@ public class AmbientePrefeitura extends javax.swing.JFrame {
 
     private void jBRemoverFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRemoverFuncionarioActionPerformed
         // TODO add your handling code here:
+        jPAreaTroca.removeAll();
+        DesvincularFuncionario df = new DesvincularFuncionario(prefeitura);
+        df.setVisible(true);
+        df.setBounds(0,0,1366,600);
+        jPAreaTroca.add(df);
+        revalidate();
+        repaint();
+        
     }//GEN-LAST:event_jBRemoverFuncionarioActionPerformed
 
     private void jBTodosFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTodosFuncionariosActionPerformed
         // TODO add your handling code here:
+        
+        jPAreaTroca.removeAll();
+        TodosFuncionarios tf = new TodosFuncionarios(prefeitura);
+        tf.setVisible(true);
+        tf.setBounds(0,0,1366,600);
+        jPAreaTroca.add(tf);
+        revalidate();
+        repaint();
+        
     }//GEN-LAST:event_jBTodosFuncionariosActionPerformed
 
     /**

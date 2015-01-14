@@ -38,6 +38,21 @@ public class DaoPrefeitura {
     }
     
     
+    public Funcionario pesquisarFuncionario(Prefeitura prefeitura, String cpf){
+        Query query = entity.createQuery("SELECT f FROM Prefeitura p JOIN p.funcionarios f WHERE p.email = :pEmail AND f.cpf = :fCpf");
+              query.setParameter("pEmail", prefeitura.getEmail());
+              query.setParameter("fCpf", cpf);
+              
+        List<Funcionario> pf = query.getResultList();        
+        
+        if (pf.size() > 0){
+            return  pf.get(0);
+        }
+
+        return null;
+    }
+    
+    
     public String cadastrarNaPrefeitura(Prefeitura prefeitura, Funcionario funcionario){
         
         try {
@@ -71,14 +86,36 @@ public class DaoPrefeitura {
             return "Funcionario ja esta vinculado na prefeitura!";
         } else {
             cadastrarNaPrefeitura(prefeitura, funcionario);
+            return "Vinculado com Sucesso!";
         }
+
+//        return "ERRO!";
+        
+    }
+    
+    
+    public String desvincular(Prefeitura prefeitura, String cpf){
+
+        Funcionario funcionario = pesquisarFuncionario(prefeitura, cpf);
         
         
-        
-        
-        
-        return "ERRO!";
-        
+        if (funcionario != null){
+
+                    prefeitura.getFuncionarios().remove(funcionario);
+                    funcionario.getPrefeituras().remove(prefeitura);
+
+                    entity.getTransaction().begin();
+                    entity.merge(prefeitura);
+                    entity.merge(funcionario);
+                    entity.getTransaction().commit();
+
+            return "Removido";
+
+        } else {
+            return "Funcionario não vinculado com a prefeitura.";
+        }
+              
+//        return "ERRO!";
     }
     
     
