@@ -31,6 +31,11 @@ public class Dao {
         entity.getTransaction().commit();
     }
     
+    public void excluir(Object object){
+        entity.getTransaction().begin();
+        entity.remove(object);
+        entity.getTransaction().commit();
+    }
     
 
 

@@ -63,40 +63,6 @@ public class Usuario extends Pessoa implements Serializable{
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 31 * hash + Objects.hashCode(this.endereco);
-        hash = 31 * hash + Objects.hashCode(this.nickname);
-        hash = 31 * hash + Objects.hashCode(this.denuncias);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Usuario other = (Usuario) obj;
-        if (!Objects.equals(this.endereco, other.endereco)) {
-            return false;
-        }
-        if (!Objects.equals(this.nickname, other.nickname)) {
-            return false;
-        }
-        if (!Objects.equals(this.denuncias, other.denuncias)) {
-            return false;
-        }
-        return true;
-    }
-
-
-
-
     
     
 }

@@ -159,10 +159,14 @@ public class LoginPrefeitura extends javax.swing.JFrame {
             Prefeitura p = dp.login(jTEmail.getText(), jPSenha.getText());
 
             if (p != null){
-                JOptionPane.showMessageDialog(rootPane, "Bem-Vindo!");
-                this.dispose();
-                inicio.dispose();
-                new AmbientePrefeitura(p).setVisible(true);
+                if(p.isAtivo() == true){
+                    JOptionPane.showMessageDialog(rootPane, "Bem-Vindo!");
+                    this.dispose();
+                    inicio.dispose();
+                    new AmbientePrefeitura(p).setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Prefeitura ainda aguardando aprovação do administrador!");
+                }
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Email ou Senha incorretos!");
             }

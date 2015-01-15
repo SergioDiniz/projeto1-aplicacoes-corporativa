@@ -24,11 +24,12 @@ public class app {
         DaoFuncionario df = new DaoFuncionario();
         DaoDenuncia dd = new DaoDenuncia();
         Dao dao = new Dao();
+        DaoPrefeitura dp = new DaoPrefeitura();
 //        EnderecoUsuario eu1 = new EnderecoUsuario("pb", "santa helena");
 //        Usuario u1 = new Usuario(eu1, "sd", "sergio@gmail.com", "123");
 //      
-        CidadePK cpk1 = new CidadePK("12345", "12345");
-        Cidade c1 = new Cidade(cpk1);
+//        CidadePK cpk1 = new CidadePK("12345", "12345");
+//        Cidade c1 = new Cidade(cpk1);
 //        
 //        Prefeitura p1 = new Prefeitura("12345", "12345", "12345", c1);
 //        
@@ -44,9 +45,9 @@ public class app {
 //        EnderecoDenuncia ed2 = new EnderecoDenuncia("bairo2", 1, "rua2");
 //        Denuncia d2 = new Denuncia("descricao1", ed2, c1);
 //        
-        entity.getTransaction().begin();
-        
-        entity.getTransaction().commit();
+//        entity.getTransaction().begin();
+//        
+//        entity.getTransaction().commit();
         
         
 //        List<Denuncia> denuncias = dd.pesquisarPorCidade("12345", "12345");
@@ -58,6 +59,7 @@ public class app {
 //        }
         
         
-        
+        List<Prefeitura> prefeituras = dp.prefeiturasPendentes();
+        System.out.println(prefeituras.size());
     }
 }

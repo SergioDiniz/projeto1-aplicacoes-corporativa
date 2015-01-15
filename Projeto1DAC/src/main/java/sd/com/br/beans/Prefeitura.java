@@ -25,6 +25,8 @@ public class Prefeitura implements Serializable{
     @Column(nullable = false)
     private String senha;
     
+    private boolean ativo;
+    
     @OneToOne(cascade = CascadeType.ALL)
     private Cidade cidade;
     @ManyToMany
@@ -37,6 +39,7 @@ public class Prefeitura implements Serializable{
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+        this.ativo = false;
     }
     
     
@@ -45,6 +48,7 @@ public class Prefeitura implements Serializable{
         this.email = email;
         this.senha = senha;
         this.cidade = cidade;
+        this.ativo = false;
     }
 
     public int getId() {
@@ -99,15 +103,18 @@ public class Prefeitura implements Serializable{
         this.funcionarios.remove(funcionario);
     }
 
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + this.id;
-        hash = 67 * hash + Objects.hashCode(this.nome);
-        hash = 67 * hash + Objects.hashCode(this.email);
-        hash = 67 * hash + Objects.hashCode(this.senha);
-        hash = 67 * hash + Objects.hashCode(this.cidade);
-        hash = 67 * hash + Objects.hashCode(this.funcionarios);
+        hash = 83 * hash + this.id;
         return hash;
     }
 
@@ -123,26 +130,9 @@ public class Prefeitura implements Serializable{
         if (this.id != other.id) {
             return false;
         }
-        if (!Objects.equals(this.nome, other.nome)) {
-            return false;
-        }
-        if (!Objects.equals(this.email, other.email)) {
-            return false;
-        }
-        if (!Objects.equals(this.senha, other.senha)) {
-            return false;
-        }
-        if (!Objects.equals(this.cidade, other.cidade)) {
-            return false;
-        }
-        if (!Objects.equals(this.funcionarios, other.funcionarios)) {
-            return false;
-        }
         return true;
     }
-    
-    
-    
-    
+
+
 
 }

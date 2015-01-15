@@ -93,13 +93,8 @@ public class Denuncia implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 5;
+        int hash = 3;
         hash = 79 * hash + this.id;
-        hash = 79 * hash + Objects.hashCode(this.descricao);
-        hash = 79 * hash + Objects.hashCode(this.estadoDeAcompanhamento);
-        hash = 79 * hash + Objects.hashCode(this.data);
-        hash = 79 * hash + Objects.hashCode(this.enderecoDenuncia);
-        hash = 79 * hash + Objects.hashCode(this.cidade);
         return hash;
     }
 
@@ -115,25 +110,8 @@ public class Denuncia implements Serializable{
         if (this.id != other.id) {
             return false;
         }
-        if (!Objects.equals(this.descricao, other.descricao)) {
-            return false;
-        }
-        if (this.estadoDeAcompanhamento != other.estadoDeAcompanhamento) {
-            return false;
-        }
-        if (!Objects.equals(this.data, other.data)) {
-            return false;
-        }
-        if (!Objects.equals(this.enderecoDenuncia, other.enderecoDenuncia)) {
-            return false;
-        }
-        if (!Objects.equals(this.cidade, other.cidade)) {
-            return false;
-        }
         return true;
     }
 
-    
-    
     
 }

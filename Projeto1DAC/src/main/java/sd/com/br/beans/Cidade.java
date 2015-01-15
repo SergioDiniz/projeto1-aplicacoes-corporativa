@@ -64,6 +64,27 @@ public class Cidade implements Serializable{
         this.denuncias = denuncias;
     }
 
-    
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 31 * hash + Objects.hashCode(this.CidadePK);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cidade other = (Cidade) obj;
+        if (!Objects.equals(this.CidadePK, other.CidadePK)) {
+            return false;
+        }
+        return true;
+    }
+
     
 }

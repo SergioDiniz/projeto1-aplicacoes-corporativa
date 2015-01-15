@@ -119,4 +119,78 @@ public class DaoPrefeitura {
     }
     
     
+    public List<Prefeitura> prefeiturasPendentes(){
+        
+        Query query = entity.createQuery("SELECT p from Prefeitura p WHERE p.ativo = false");
+        List<Prefeitura> prefeituras = query.getResultList();
+        
+        if (prefeituras.size() > 0){
+            return prefeituras;
+        }
+                
+        return null;
+    }
+    
+    
+    public Prefeitura pesquisarPorCodigo(int codigo){
+        
+        Query query = entity.createQuery("SELECT p from Prefeitura p WHERE p.id = :codigo");
+              query.setParameter("codigo", codigo);
+              
+        List<Prefeitura> prefeituras = query.getResultList();
+        
+        if (prefeituras.size() > 0){
+            return  prefeituras.get(0);
+        }
+        
+        return null;
+        
+    }
+    
+    public String atualizarSituacao(Prefeitura prefeitura, boolean situacao){
+        
+        
+        
+        try {
+        
+            prefeitura.setAtivo(situacao);
+
+            entity.getTransaction().begin();
+            entity.merge(prefeitura);
+            entity.getTransaction().commit();            
+            
+            return "Atualizado com Sucesso!";
+            
+        } catch (Exception e) {
+        }
+        
+        return "ERRO!";
+        
+    }
+    
+    
+    public String  excluir(Prefeitura prefeitura){
+        
+        try {
+            prefeitura.setFuncionarios(null);
+            prefeitura.setCidade(null);
+
+            entity.getTransaction().begin();
+            entity.merge(prefeitura);
+            entity.remove(prefeitura);
+            entity.getTransaction().commit();   
+            
+            return "OK!";
+            
+        } catch (Exception e) {
+        }
+        
+        
+        
+        return "ERRO!";
+        
+    }
+    
+    
+    
 }

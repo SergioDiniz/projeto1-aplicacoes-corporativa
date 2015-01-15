@@ -53,9 +53,10 @@ public class TodosFuncionarios extends javax.swing.JPanel {
         }else{
             JOptionPane.showMessageDialog(jPanel1, "Não foi Encontrado nenhum resultado!");
             jPResultadoFuncionario.setVisible(false);
-            revalidate();
-            repaint();
         }
+        
+        revalidate();
+        repaint();
         
     }
     
