@@ -10,7 +10,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import sd.com.br.beans.Cidade;
 import sd.com.br.beans.Denuncia;
+import sd.com.br.beans.EstadoDeAcompanhamento;
 
 /**
  *
@@ -33,6 +35,45 @@ public class DaoDenuncia {
         }         
         
         return null;
+    }
+    
+    
+    public Denuncia pesquisarPorCodigo(int codigo, Cidade cidade){
+        
+        Query query = entity.createQuery("SELECT d FROM Denuncia d WHERE d.id = :codigo AND d.cidade = :cidade");
+              query.setParameter("codigo", codigo);
+              query.setParameter("cidade", cidade);
+        
+        List<Denuncia> denuncias = query.getResultList();
+              
+        if (denuncias.size() > 0){
+            return denuncias.get(0);
+        }
+        
+        return null;
+        
+    }
+    
+    
+    public String atualizarAcompanhamento(int codigo, EstadoDeAcompanhamento acompanhamento, Cidade cidade){
+        
+        try {
+            Denuncia d = pesquisarPorCodigo(codigo, cidade);
+
+            d.setEstadoDeAcompanhamento(acompanhamento);
+
+            entity.getTransaction().begin();
+            entity.merge(d);
+            entity.getTransaction().commit();      
+            
+            return "Atualização realizada com sucesso.";
+            
+        } catch (Exception e) {
+        }
+        
+        
+        return "ERRO!";
+        
     }
     
     

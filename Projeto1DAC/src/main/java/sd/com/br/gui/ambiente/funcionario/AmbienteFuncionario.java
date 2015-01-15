@@ -9,6 +9,8 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import sd.com.br.beans.Cidade;
 import sd.com.br.beans.Funcionario;
+import sd.com.br.dao.DaoCidade;
+import sd.com.br.gui.Inicio;
 
 /**
  *
@@ -42,6 +44,11 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
         jBDenunciarDenuncia.setIcon(iconDenunciar);
         jBSair.setIcon(iconSair); 
         
+    }
+    
+    public void atualizarCidade(){
+        DaoCidade dc = new DaoCidade();
+        cidade = dc.atualizarObjCidade(cidade);
     }
 
     /**
@@ -170,7 +177,7 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
 
     private void jBAcompanharDenunciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAcompanharDenunciasActionPerformed
         // TODO add your handling code here:
-        
+        atualizarCidade();
         jPareaTroca.removeAll();
         AcompanharDenuncia ad = new AcompanharDenuncia(cidade);
         ad.setVisible(true);
@@ -183,6 +190,15 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
 
     private void jBAtualizarSituacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAtualizarSituacaoActionPerformed
         // TODO add your handling code here:
+        
+        jPareaTroca.removeAll();
+        AtualizarDenuncia ad = new AtualizarDenuncia(cidade);
+        ad.setVisible(true);
+        ad.setBounds(0,0,1366,600);
+        jPareaTroca.add(ad);
+        revalidate();
+        repaint();
+        
     }//GEN-LAST:event_jBAtualizarSituacaoActionPerformed
 
     private void jBDenunciarDenunciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDenunciarDenunciaActionPerformed
@@ -191,6 +207,10 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
 
     private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed
         // TODO add your handling code here:
+        
+        dispose();
+        new Inicio().setVisible(true);        
+        
     }//GEN-LAST:event_jBSairActionPerformed
 
     /**

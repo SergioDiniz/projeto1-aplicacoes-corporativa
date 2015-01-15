@@ -7,6 +7,7 @@ package sd.com.br.beans;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.*;
 
 /**
@@ -88,6 +89,48 @@ public class Denuncia implements Serializable{
 
     public void setEnderecoDenuncia(EnderecoDenuncia enderecoDenuncia) {
         this.enderecoDenuncia = enderecoDenuncia;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 79 * hash + this.id;
+        hash = 79 * hash + Objects.hashCode(this.descricao);
+        hash = 79 * hash + Objects.hashCode(this.estadoDeAcompanhamento);
+        hash = 79 * hash + Objects.hashCode(this.data);
+        hash = 79 * hash + Objects.hashCode(this.enderecoDenuncia);
+        hash = 79 * hash + Objects.hashCode(this.cidade);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Denuncia other = (Denuncia) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.descricao, other.descricao)) {
+            return false;
+        }
+        if (this.estadoDeAcompanhamento != other.estadoDeAcompanhamento) {
+            return false;
+        }
+        if (!Objects.equals(this.data, other.data)) {
+            return false;
+        }
+        if (!Objects.equals(this.enderecoDenuncia, other.enderecoDenuncia)) {
+            return false;
+        }
+        if (!Objects.equals(this.cidade, other.cidade)) {
+            return false;
+        }
+        return true;
     }
 
     

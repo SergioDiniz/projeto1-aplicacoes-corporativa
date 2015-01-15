@@ -200,7 +200,7 @@ public class NovaDenuncia extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(jBSalvar, resultado);
             
         } else {
-            JOptionPane.showMessageDialog(jBSalvar, "Não foi Encontrado nenhum resultado!");
+            JOptionPane.showMessageDialog(jPanel1, "Preencha todos os campos corretamente!");
         }
         
     }//GEN-LAST:event_jBSalvarActionPerformed

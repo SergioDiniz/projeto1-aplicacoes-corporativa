@@ -37,10 +37,12 @@ public class DenunciasRealizadas extends javax.swing.JPanel {
         if(denuncias != null){
             
             ArrayList dados = new ArrayList();
-            String[] colunas = new String[]{"Descrição", "Endereço", "Acompanhamento"};
+            String[] colunas = new String[]{"Descrição", "Cidade", "Endereço", "Acompanhamento"};
 
             for(int i = 0 ; i < denuncias.size() ;i++){
-                dados.add(new Object[]{denuncias.get(i).getDescricao(), denuncias.get(i).getEnderecoDenuncia().getRua() + ", nº " +
+                dados.add(new Object[]{denuncias.get(i).getDescricao(), denuncias.get(i).getCidade().getCidadePK().getNomeCidade()
+                + ", " + denuncias.get(i).getCidade().getCidadePK().getSiglaEstado(),
+                denuncias.get(i).getEnderecoDenuncia().getRua() + ", nº " +
                 denuncias.get(i).getEnderecoDenuncia().getNumero() + ", " + denuncias.get(i).getEnderecoDenuncia().getBairro(),
                 denuncias.get(i).getEstadoDeAcompanhamento()});
             }

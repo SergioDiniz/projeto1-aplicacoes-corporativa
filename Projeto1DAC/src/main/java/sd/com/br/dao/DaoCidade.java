@@ -25,4 +25,13 @@ public class DaoCidade {
     }
     
     
+    public Cidade atualizarObjCidade(Cidade cidade){
+        entity.getTransaction().begin();
+        entity.refresh(cidade);
+        entity.getTransaction().commit();
+        
+        return cidade;
+    }
+    
+    
 }

@@ -8,6 +8,7 @@ package sd.com.br.gui.ambiente.funcionario;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import sd.com.br.beans.Cidade;
+import sd.com.br.dao.DaoCidade;
 import sd.com.br.gui.ModeloTabela;
 
 /**
@@ -25,10 +26,18 @@ public class AcompanharDenuncia extends javax.swing.JPanel {
         this.cidade = cidade;
         initComponents();
         init();
+        atualizarCidade();
     }
+    
+    public void atualizarCidade(){
+        DaoCidade dc = new DaoCidade();
+        cidade = dc.atualizarObjCidade(cidade);
+    }    
     
     
     public void init(){
+        
+        JOptionPane.showMessageDialog(jPanel1, cidade.getDenuncias().size());
         
         if(cidade.getDenuncias() != null && cidade.getDenuncias().size() > 0){
             

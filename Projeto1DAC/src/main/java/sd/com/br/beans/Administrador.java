@@ -24,4 +24,5 @@ public class Administrador extends Pessoa implements Serializable{
     
     
     
+    
 }
