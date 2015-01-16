@@ -92,16 +92,19 @@ public class DaoUsuario {
     
     public String excluir(Usuario usuario){
         
+        try {
             usuario.setDenuncias(null);
         
             entity.getTransaction().begin();
             entity.remove(entity.merge(usuario));
             entity.getTransaction().commit();
             return "Removido com sucesso!";
+        } catch (Exception e) {
+        }
 
         
         
-//        return "ERRO!";
+        return "ERRO!";
     }
     
     

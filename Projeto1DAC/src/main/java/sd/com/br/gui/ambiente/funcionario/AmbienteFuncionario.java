@@ -38,10 +38,13 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
         Icon iconAtualizar = new ImageIcon("src/main/java/sd/com/br/gui/img/atualizarDenuncia.jpg");
         Icon iconDenunciar = new ImageIcon("src/main/java/sd/com/br/gui/img/denunciarDenuncia.jpg");
         Icon iconSair = new ImageIcon("src/main/java/sd/com/br/gui/img/sair.jpg");
+        Icon iconConfig = new ImageIcon("src/main/java/sd/com/br/gui/img/configuracoes.jpg");
+        
         
         jBAcompanharDenuncias.setIcon(iconAcompanhar);
         jBAtualizarSituacao.setIcon(iconAtualizar);
         jBDenunciarDenuncia.setIcon(iconDenunciar);
+        jBConfigurar.setIcon(iconConfig);
         jBSair.setIcon(iconSair); 
         
     }
@@ -66,6 +69,7 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
         jBAtualizarSituacao = new javax.swing.JButton();
         jBDenunciarDenuncia = new javax.swing.JButton();
         jBSair = new javax.swing.JButton();
+        jBConfigurar = new javax.swing.JButton();
         jPareaTroca = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -106,6 +110,14 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
             }
         });
 
+        jBConfigurar.setToolTipText("Denuncia Conteudo Improprio em Denuncia");
+        jBConfigurar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBConfigurar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBConfigurarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPAreaMenuLayout = new javax.swing.GroupLayout(jPAreaMenu);
         jPAreaMenu.setLayout(jPAreaMenuLayout);
         jPAreaMenuLayout.setHorizontalGroup(
@@ -116,7 +128,9 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
                 .addComponent(jBAtualizarSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jBDenunciarDenuncia, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jBConfigurar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPAreaMenuLayout.setVerticalGroup(
@@ -125,6 +139,7 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
             .addComponent(jBAtualizarSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jBDenunciarDenuncia, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jBConfigurar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPareaTroca.setBackground(new java.awt.Color(255, 255, 255));
@@ -213,6 +228,19 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jBSairActionPerformed
 
+    private void jBConfigurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConfigurarActionPerformed
+        // TODO add your handling code here:
+        
+        jPareaTroca.removeAll();
+        ConfiguracoesFuncionario cf = new ConfiguracoesFuncionario(funcionario, this);
+        cf.setVisible(true);
+        cf.setBounds(0,0,1366,600);
+        jPareaTroca.add(cf);
+        revalidate();
+        repaint();
+        
+    }//GEN-LAST:event_jBConfigurarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -251,6 +279,7 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAcompanharDenuncias;
     private javax.swing.JButton jBAtualizarSituacao;
+    private javax.swing.JButton jBConfigurar;
     private javax.swing.JButton jBDenunciarDenuncia;
     private javax.swing.JButton jBSair;
     private javax.swing.JPanel jPAreaMenu;
