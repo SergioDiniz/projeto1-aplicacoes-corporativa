@@ -95,7 +95,7 @@ public class DaoUsuario {
             usuario.setDenuncias(null);
         
             entity.getTransaction().begin();
-            entity.remove(usuario);
+            entity.remove(entity.merge(usuario));
             entity.getTransaction().commit();
             return "Removido com sucesso!";
 
