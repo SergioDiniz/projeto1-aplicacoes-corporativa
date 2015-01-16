@@ -192,5 +192,19 @@ public class DaoPrefeitura {
     }
     
     
+    public List<Prefeitura> todasPrefeituras(){
+        
+        Query query = entity.createQuery("SELECT p FROM Prefeitura p WHERE p.ativo = true");
+        
+        List<Prefeitura> prefeituras = query.getResultList();
+        
+        if(prefeituras.size() > 0){
+            return prefeituras;
+        }
+        
+        return null;
+        
+    }
+    
     
 }

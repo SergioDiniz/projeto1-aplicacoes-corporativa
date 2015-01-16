@@ -196,6 +196,15 @@ public class AmbienteAdmin extends javax.swing.JFrame {
 
     private void jBTodasPrefeituraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTodasPrefeituraActionPerformed
         // TODO add your handling code here:
+        
+        jPAreaTroca.removeAll();
+        TodasPrefeituras tp = new TodasPrefeituras();
+        tp.setVisible(true);
+        tp.setBounds(0,0,1366,600);
+        jPAreaTroca.add(tp);
+        revalidate();
+        repaint();
+        
     }//GEN-LAST:event_jBTodasPrefeituraActionPerformed
 
     /**

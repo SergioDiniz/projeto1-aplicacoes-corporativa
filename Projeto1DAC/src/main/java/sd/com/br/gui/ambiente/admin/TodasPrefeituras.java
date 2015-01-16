@@ -16,27 +16,26 @@ import sd.com.br.gui.ModeloTabela;
  *
  * @author SergioD
  */
-public class SolicitacoesPendentes extends javax.swing.JPanel {
+public class TodasPrefeituras extends javax.swing.JPanel {
 
     /**
-     * Creates new form SolicitacoesPendentes
+     * Creates new form TodasPrefeituras
      */
-    public SolicitacoesPendentes() {
+    public TodasPrefeituras() {
         initComponents();
         init();
     }
     
-    
     public void init(){
         
         DaoPrefeitura dp = new DaoPrefeitura();
-        List<Prefeitura> prefeituras = dp.prefeiturasPendentes();
+        List<Prefeitura> prefeituras = dp.todasPrefeituras();
         
-        if(prefeituras != null){
-            jPTabela.setVisible(true);
+        if (prefeituras != null){
+            jPAreaMenu.setVisible(true);
             ArrayList dados = new ArrayList();
             String[] colunas = new String[]{"Nome", "Cidade", "Estado", "Codigo"};
-            
+
             for(int i = 0 ; i < prefeituras.size() ; i++){
                 dados.add(new Object[]{
                                         prefeituras.get(i).getNome(),
@@ -47,18 +46,16 @@ public class SolicitacoesPendentes extends javax.swing.JPanel {
             }
             
             ModeloTabela tabela = new ModeloTabela(dados, colunas);
-            jTable1.setModel(tabela);
-            jTable1.setRowHeight(40);
-            jTable1.getTableHeader().setReorderingAllowed(false);            
+            jTListaPrefeitura.setModel(tabela);
+            jTListaPrefeitura.setRowHeight(40);
+            jTListaPrefeitura.getTableHeader().setReorderingAllowed(false);             
+            
             
             
         } else {
-            jPTabela.setVisible(false);
+            jPAreaMenu.setVisible(false);
             JOptionPane.showMessageDialog(jPanel1, "Não foi Encontrado nenhum resultado!");
         }
-        
-        revalidate();
-        repaint();
         
     }
     
@@ -74,18 +71,18 @@ public class SolicitacoesPendentes extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPTabela = new javax.swing.JPanel();
+        jPAreaMenu = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTListaPrefeitura = new javax.swing.JTable();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel1.setText("Solicitações Pendentes");
+        jLabel1.setText("Todas as Prefeituras Ativas");
 
-        jPTabela.setBackground(new java.awt.Color(255, 255, 255));
+        jPAreaMenu.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTListaPrefeitura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -96,22 +93,20 @@ public class SolicitacoesPendentes extends javax.swing.JPanel {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTListaPrefeitura);
 
-        javax.swing.GroupLayout jPTabelaLayout = new javax.swing.GroupLayout(jPTabela);
-        jPTabela.setLayout(jPTabelaLayout);
-        jPTabelaLayout.setHorizontalGroup(
-            jPTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPTabelaLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPAreaMenuLayout = new javax.swing.GroupLayout(jPAreaMenu);
+        jPAreaMenu.setLayout(jPAreaMenuLayout);
+        jPAreaMenuLayout.setHorizontalGroup(
+            jPAreaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPAreaMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 806, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPTabelaLayout.setVerticalGroup(
-            jPTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPTabelaLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
-                .addContainerGap())
+        jPAreaMenuLayout.setVerticalGroup(
+            jPAreaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -119,20 +114,22 @@ public class SolicitacoesPendentes extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPTabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPAreaMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jPTabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPAreaMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -151,9 +148,9 @@ public class SolicitacoesPendentes extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPTabela;
+    private javax.swing.JPanel jPAreaMenu;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTListaPrefeitura;
     // End of variables declaration//GEN-END:variables
 }
