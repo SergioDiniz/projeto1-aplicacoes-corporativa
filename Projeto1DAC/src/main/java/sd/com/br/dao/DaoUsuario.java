@@ -13,6 +13,7 @@ import sd.com.br.beans.Cidade;
 import sd.com.br.beans.CidadePK;
 import sd.com.br.beans.Denuncia;
 import sd.com.br.beans.EnderecoDenuncia;
+import sd.com.br.beans.EnderecoUsuario;
 import sd.com.br.beans.Usuario;
 
 /**
@@ -87,6 +88,20 @@ public class DaoUsuario {
         
         return null;
         
+    }
+    
+    public String excluir(Usuario usuario){
+        
+            usuario.setDenuncias(null);
+        
+            entity.getTransaction().begin();
+            entity.remove(usuario);
+            entity.getTransaction().commit();
+            return "Removido com sucesso!";
+
+        
+        
+//        return "ERRO!";
     }
     
     

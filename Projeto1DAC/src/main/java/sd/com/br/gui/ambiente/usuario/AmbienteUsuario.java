@@ -43,10 +43,12 @@ public class AmbienteUsuario extends javax.swing.JFrame {
         Icon iconPesquisar = new ImageIcon("src/main/java/sd/com/br/gui/img/pesquisar.jpg");
         Icon iconRealizadas = new ImageIcon("src/main/java/sd/com/br/gui/img/realizadas.jpg");
         Icon iconSair = new ImageIcon("src/main/java/sd/com/br/gui/img/sair.jpg");
+        Icon iconConfig = new ImageIcon("src/main/java/sd/com/br/gui/img/configuracoes.jpg");
         
         jBNovaDenuncia.setIcon(iconEscrever);
         jBPesquisarCidade.setIcon(iconPesquisar);
         jBDenunciasRealizadas.setIcon(iconRealizadas);
+        jBConfiguracoes.setIcon(iconConfig);
         jBSair.setIcon(iconSair);        
     }
     
@@ -67,6 +69,7 @@ public class AmbienteUsuario extends javax.swing.JFrame {
         jBPesquisarCidade = new javax.swing.JButton();
         jBDenunciasRealizadas = new javax.swing.JButton();
         jBSair = new javax.swing.JButton();
+        jBConfiguracoes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -118,6 +121,14 @@ public class AmbienteUsuario extends javax.swing.JFrame {
             }
         });
 
+        jBConfiguracoes.setToolTipText("Denuncias Realizadas");
+        jBConfiguracoes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jBConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBConfiguracoesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPConteinerLayout = new javax.swing.GroupLayout(jPConteiner);
         jPConteiner.setLayout(jPConteinerLayout);
         jPConteinerLayout.setHorizontalGroup(
@@ -132,7 +143,9 @@ public class AmbienteUsuario extends javax.swing.JFrame {
                         .addComponent(jBPesquisarCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jBDenunciasRealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                         .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPAreaTroca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -145,7 +158,8 @@ public class AmbienteUsuario extends javax.swing.JFrame {
                     .addComponent(jBNovaDenuncia, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBPesquisarCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBDenunciasRealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -214,6 +228,19 @@ public class AmbienteUsuario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jBDenunciasRealizadasActionPerformed
 
+    private void jBConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConfiguracoesActionPerformed
+        // TODO add your handling code here:
+        
+        jPAreaTroca.removeAll();
+        ConfiguracoesUsuario conf = new ConfiguracoesUsuario(usuario, this);
+        conf.setVisible(true);
+        conf.setBounds(0,0,1366,600);
+        jPAreaTroca.add(conf);
+        revalidate();
+        repaint();        
+        
+    }//GEN-LAST:event_jBConfiguracoesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -250,6 +277,7 @@ public class AmbienteUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBConfiguracoes;
     private javax.swing.JButton jBDenunciasRealizadas;
     private javax.swing.JButton jBNovaDenuncia;
     private javax.swing.JButton jBPesquisarCidade;
