@@ -74,7 +74,7 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
 
         jPAreaMenu.setBackground(new java.awt.Color(255, 255, 255));
 
-        jBAcompanharDenuncias.setToolTipText("Novo Funcionario");
+        jBAcompanharDenuncias.setToolTipText("Acompanhar Denuncias");
         jBAcompanharDenuncias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBAcompanharDenuncias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,7 +82,7 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
             }
         });
 
-        jBAtualizarSituacao.setToolTipText("Novo Funcionario");
+        jBAtualizarSituacao.setToolTipText("Atualizar Estado da Denuncia");
         jBAtualizarSituacao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBAtualizarSituacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +90,7 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
             }
         });
 
-        jBDenunciarDenuncia.setToolTipText("Novo Funcionario");
+        jBDenunciarDenuncia.setToolTipText("Denuncia Conteudo Improprio em Denuncia");
         jBDenunciarDenuncia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBDenunciarDenuncia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +98,7 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
             }
         });
 
-        jBSair.setToolTipText("Novo Funcionario");
+        jBSair.setToolTipText("Sair");
         jBSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

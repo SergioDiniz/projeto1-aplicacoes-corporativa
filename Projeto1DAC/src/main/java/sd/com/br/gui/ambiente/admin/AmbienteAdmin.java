@@ -29,8 +29,14 @@ public class AmbienteAdmin extends javax.swing.JFrame {
     }
     
     public void iniciarBotoes(){
+        Icon iconSolicitacoes = new ImageIcon("src/main/java/sd/com/br/gui/img/solicitacoesPendentes.jpg");
+        Icon iconGerenciar = new ImageIcon("src/main/java/sd/com/br/gui/img/gerenciarestadoPrefeituras.jpg");
+        Icon iconAtivos = new ImageIcon("src/main/java/sd/com/br/gui/img/prefeiturasAtivas.jpg");
         Icon iconSair = new ImageIcon("src/main/java/sd/com/br/gui/img/sair.jpg");
         
+        jBSolicitacoesPendentes.setIcon(iconSolicitacoes);
+        jBGerenciarEstado.setIcon(iconGerenciar);
+        jBTodasPrefeitura.setIcon(iconAtivos);
         jBSair.setIcon(iconSair);
     }
 
@@ -55,9 +61,9 @@ public class AmbienteAdmin extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPAreaMenu.setBackground(new java.awt.Color(255, 255, 255));
+        jPAreaMenu.setBackground(new java.awt.Color(102, 102, 102));
 
-        jBSair.setToolTipText("Novo Funcionario");
+        jBSair.setToolTipText("Sair");
         jBSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,7 +71,7 @@ public class AmbienteAdmin extends javax.swing.JFrame {
             }
         });
 
-        jBSolicitacoesPendentes.setToolTipText("Novo Funcionario");
+        jBSolicitacoesPendentes.setToolTipText("Solicitações Pendentes");
         jBSolicitacoesPendentes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBSolicitacoesPendentes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,7 +79,7 @@ public class AmbienteAdmin extends javax.swing.JFrame {
             }
         });
 
-        jBGerenciarEstado.setToolTipText("Novo Funcionario");
+        jBGerenciarEstado.setToolTipText("Gerenciar Estado das Prefeitura");
         jBGerenciarEstado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBGerenciarEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +87,7 @@ public class AmbienteAdmin extends javax.swing.JFrame {
             }
         });
 
-        jBTodasPrefeitura.setToolTipText("Novo Funcionario");
+        jBTodasPrefeitura.setToolTipText("Todas as Prefeituras Ativas");
         jBTodasPrefeitura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBTodasPrefeitura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,24 +100,26 @@ public class AmbienteAdmin extends javax.swing.JFrame {
         jPAreaMenuLayout.setHorizontalGroup(
             jPAreaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPAreaMenuLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
+                .addContainerGap()
                 .addComponent(jBSolicitacoesPendentes, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jBGerenciarEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jBTodasPrefeitura, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
-                .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPAreaMenuLayout.setVerticalGroup(
             jPAreaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPAreaMenuLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPAreaMenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPAreaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBSolicitacoesPendentes, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBGerenciarEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBTodasPrefeitura, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0))
+                .addContainerGap())
         );
 
         jPAreaTroca.setBackground(new java.awt.Color(255, 255, 255));
@@ -120,11 +128,11 @@ public class AmbienteAdmin extends javax.swing.JFrame {
         jPAreaTroca.setLayout(jPAreaTrocaLayout);
         jPAreaTrocaLayout.setHorizontalGroup(
             jPAreaTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 695, Short.MAX_VALUE)
         );
         jPAreaTrocaLayout.setVerticalGroup(
             jPAreaTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 269, Short.MAX_VALUE)
+            .addGap(0, 258, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -133,15 +141,13 @@ public class AmbienteAdmin extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPAreaTroca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPAreaMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPAreaTroca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(jPAreaMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPAreaMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPAreaTroca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

@@ -34,7 +34,7 @@ public class AmbienteUsuario extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
 
         
-       JOptionPane.showMessageDialog(rootPane, "Bem-Vindo " + usuario.getNickname() + "!"); 
+       JOptionPane.showMessageDialog(rootPane, "Bem-Vindo!"); 
     }
 
     
@@ -87,7 +87,7 @@ public class AmbienteUsuario extends javax.swing.JFrame {
         );
 
         jBNovaDenuncia.setToolTipText("Nova Denuncia");
-        jBNovaDenuncia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBNovaDenuncia.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBNovaDenuncia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBNovaDenunciaActionPerformed(evt);
@@ -95,7 +95,7 @@ public class AmbienteUsuario extends javax.swing.JFrame {
         });
 
         jBPesquisarCidade.setToolTipText("Pesquisar Cidade");
-        jBPesquisarCidade.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBPesquisarCidade.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBPesquisarCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBPesquisarCidadeActionPerformed(evt);
@@ -103,7 +103,7 @@ public class AmbienteUsuario extends javax.swing.JFrame {
         });
 
         jBDenunciasRealizadas.setToolTipText("Denuncias Realizadas");
-        jBDenunciasRealizadas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBDenunciasRealizadas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBDenunciasRealizadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBDenunciasRealizadasActionPerformed(evt);
@@ -111,7 +111,7 @@ public class AmbienteUsuario extends javax.swing.JFrame {
         });
 
         jBSair.setToolTipText("Sair");
-        jBSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBSair.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBSairActionPerformed(evt);
