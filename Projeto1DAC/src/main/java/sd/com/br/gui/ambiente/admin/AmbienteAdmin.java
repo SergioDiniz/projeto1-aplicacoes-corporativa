@@ -7,6 +7,7 @@ package sd.com.br.gui.ambiente.admin;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import sd.com.br.beans.Administrador;
 import sd.com.br.gui.Inicio;
 
 /**
@@ -20,8 +21,10 @@ public class AmbienteAdmin extends javax.swing.JFrame {
      */
     
     private Inicio inicio;
+    private Administrador administrador;
     
-    public AmbienteAdmin(Inicio inicio) {
+    public AmbienteAdmin(Inicio inicio, Administrador administrador) {
+        this.administrador = administrador;
         this.inicio = inicio;
         initComponents();
         iniciarBotoes();
@@ -32,11 +35,13 @@ public class AmbienteAdmin extends javax.swing.JFrame {
         Icon iconSolicitacoes = new ImageIcon("src/main/java/sd/com/br/gui/img/solicitacoesPendentes.jpg");
         Icon iconGerenciar = new ImageIcon("src/main/java/sd/com/br/gui/img/gerenciarestadoPrefeituras.jpg");
         Icon iconAtivos = new ImageIcon("src/main/java/sd/com/br/gui/img/prefeiturasAtivas.jpg");
+        Icon iconConf = new ImageIcon("src/main/java/sd/com/br/gui/img/configuracoes.jpg");
         Icon iconSair = new ImageIcon("src/main/java/sd/com/br/gui/img/sair.jpg");
         
         jBSolicitacoesPendentes.setIcon(iconSolicitacoes);
         jBGerenciarEstado.setIcon(iconGerenciar);
         jBTodasPrefeitura.setIcon(iconAtivos);
+        jBConfigurar.setIcon(iconConf);
         jBSair.setIcon(iconSair);
     }
 
@@ -55,6 +60,7 @@ public class AmbienteAdmin extends javax.swing.JFrame {
         jBSolicitacoesPendentes = new javax.swing.JButton();
         jBGerenciarEstado = new javax.swing.JButton();
         jBTodasPrefeitura = new javax.swing.JButton();
+        jBConfigurar = new javax.swing.JButton();
         jPAreaTroca = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -95,6 +101,14 @@ public class AmbienteAdmin extends javax.swing.JFrame {
             }
         });
 
+        jBConfigurar.setToolTipText("Denuncia Conteudo Improprio em Denuncia");
+        jBConfigurar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBConfigurar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBConfigurarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPAreaMenuLayout = new javax.swing.GroupLayout(jPAreaMenu);
         jPAreaMenu.setLayout(jPAreaMenuLayout);
         jPAreaMenuLayout.setHorizontalGroup(
@@ -106,6 +120,8 @@ public class AmbienteAdmin extends javax.swing.JFrame {
                 .addComponent(jBGerenciarEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jBTodasPrefeitura, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jBConfigurar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -115,6 +131,7 @@ public class AmbienteAdmin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPAreaMenuLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPAreaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBConfigurar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBSolicitacoesPendentes, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBGerenciarEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -213,6 +230,19 @@ public class AmbienteAdmin extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jBTodasPrefeituraActionPerformed
 
+    private void jBConfigurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConfigurarActionPerformed
+        // TODO add your handling code here:
+
+        jPAreaTroca.removeAll();
+        ConfiguracoesAdmin ca = new ConfiguracoesAdmin(administrador);
+        ca.setVisible(true);
+        ca.setBounds(0,0,1366,600);
+        jPAreaTroca.add(ca);
+        revalidate();
+        repaint();
+
+    }//GEN-LAST:event_jBConfigurarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -243,12 +273,13 @@ public class AmbienteAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AmbienteAdmin(new Inicio()).setVisible(true);
+                new AmbienteAdmin(new Inicio(), new Administrador() ).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBConfigurar;
     private javax.swing.JButton jBGerenciarEstado;
     private javax.swing.JButton jBSair;
     private javax.swing.JButton jBSolicitacoesPendentes;

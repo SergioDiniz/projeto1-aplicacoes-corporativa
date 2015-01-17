@@ -13,6 +13,7 @@ import sd.com.br.gui.Cadastros.CadastroPrefeitura;
 import sd.com.br.gui.Cadastros.CadastroFuncionario;
 import sd.com.br.gui.Cadastros.CadastroCidade;
 import javax.swing.JDialog;
+import sd.com.br.gui.login.LoginAdmin;
 import sd.com.br.gui.login.LoginFuncionario;
 import sd.com.br.gui.login.LoginPrefeitura;
 import sd.com.br.gui.login.LoginUsuario;
@@ -57,6 +58,7 @@ public class Inicio extends javax.swing.JFrame {
         jMLoginUsuario = new javax.swing.JMenuItem();
         jMLoginPrefeitura = new javax.swing.JMenuItem();
         jMLoginFuncionario = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -148,6 +150,14 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         jMLogin.add(jMLoginFuncionario);
+
+        jMenuItem1.setText("Administrador");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMLogin.add(jMenuItem1);
 
         jMenuBar1.add(jMLogin);
 
@@ -251,6 +261,17 @@ public class Inicio extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMLoginFuncionarioActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        
+        LoginAdmin loginAdmin = new LoginAdmin(this);
+        loginAdmin.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        loginAdmin.setResizable(false);
+        loginAdmin.setLocationRelativeTo(null);
+        loginAdmin.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -299,6 +320,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMLoginPrefeitura;
     private javax.swing.JMenuItem jMLoginUsuario;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPCentral;
     // End of variables declaration//GEN-END:variables
 }

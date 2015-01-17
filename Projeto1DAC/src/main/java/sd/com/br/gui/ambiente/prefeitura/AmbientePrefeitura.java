@@ -32,11 +32,13 @@ public class AmbientePrefeitura extends javax.swing.JFrame {
         Icon iconNovo = new ImageIcon("src/main/java/sd/com/br/gui/img/novoFuncionario.jpg");
         Icon iconRemover = new ImageIcon("src/main/java/sd/com/br/gui/img/removerFuncionario.jpg");
         Icon iconListar = new ImageIcon("src/main/java/sd/com/br/gui/img/todosFuncionarios.jpg");
+        Icon iconConf = new ImageIcon("src/main/java/sd/com/br/gui/img/configuracoes.jpg");
         Icon iconSair = new ImageIcon("src/main/java/sd/com/br/gui/img/sair.jpg");
         
         jBNovoFuncionario.setIcon(iconNovo);
         jBRemoverFuncionario.setIcon(iconRemover);
         jBTodosFuncionarios.setIcon(iconListar);
+        jBConfiguracoes.setIcon(iconConf);
         jBSair.setIcon(iconSair);        
     }
     
