@@ -11,6 +11,7 @@ import javax.swing.SwingConstants;
 import sd.com.br.beans.Cidade;
 import sd.com.br.beans.Funcionario;
 import sd.com.br.dao.DaoCidade;
+import sd.com.br.gui.BemVindo;
 import sd.com.br.gui.Inicio;
 
 /**
@@ -36,6 +37,14 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
     
     public void init(){
         jLNome.setText(funcionario.getNome());
+        
+        jPareaTroca.removeAll();
+        BemVindo bv = new BemVindo();
+        bv.setVisible(true);
+        bv.setBounds(0,0,1235,630);
+        jPareaTroca.add(bv);
+        revalidate();
+        repaint();        
     }
     
     public void iniciarBotoes(){

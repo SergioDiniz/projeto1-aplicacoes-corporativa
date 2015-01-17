@@ -8,6 +8,7 @@ package sd.com.br.gui.ambiente.admin;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import sd.com.br.beans.Administrador;
+import sd.com.br.gui.BemVindo;
 import sd.com.br.gui.Inicio;
 
 /**
@@ -27,8 +28,20 @@ public class AmbienteAdmin extends javax.swing.JFrame {
         this.administrador = administrador;
         this.inicio = inicio;
         initComponents();
+        init();
         iniciarBotoes();
         this.setExtendedState(MAXIMIZED_BOTH);
+    }
+    
+    public void init(){
+        
+        jPAreaTroca.removeAll();
+        BemVindo bv = new BemVindo();
+        bv.setVisible(true);
+        bv.setBounds(0,0,1366,650);
+        jPAreaTroca.add(bv);
+        revalidate();
+        repaint();          
     }
     
     public void iniciarBotoes(){
@@ -122,7 +135,7 @@ public class AmbienteAdmin extends javax.swing.JFrame {
                 .addComponent(jBTodasPrefeitura, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jBConfigurar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -145,7 +158,7 @@ public class AmbienteAdmin extends javax.swing.JFrame {
         jPAreaTroca.setLayout(jPAreaTrocaLayout);
         jPAreaTrocaLayout.setHorizontalGroup(
             jPAreaTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 695, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPAreaTrocaLayout.setVerticalGroup(
             jPAreaTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,19 +169,16 @@ public class AmbienteAdmin extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPAreaTroca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addComponent(jPAreaMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPAreaTroca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPAreaMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(0, 0, 0)
                 .addComponent(jPAreaTroca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -8,6 +8,7 @@ package sd.com.br.gui.ambiente.prefeitura;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import sd.com.br.beans.Prefeitura;
+import sd.com.br.gui.BemVindo;
 import sd.com.br.gui.Inicio;
 
 /**
@@ -30,6 +31,14 @@ public class AmbientePrefeitura extends javax.swing.JFrame {
 
     public void init(){
         jLNome.setText(prefeitura.getNome());
+        
+        jPAreaTroca.removeAll();
+        BemVindo bv = new BemVindo();
+        bv.setVisible(true);
+        bv.setBounds(0,0,1235,630);
+        jPAreaTroca.add(bv);
+        revalidate();
+        repaint();        
     }
     
     public void iniciarBotoes(){

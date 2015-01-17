@@ -9,7 +9,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sd.com.br.beans.Usuario;
-import sd.com.br.gui.Inicio;
+import sd.com.br.gui.*;
 
 /**
  *
@@ -37,6 +37,15 @@ public class AmbienteUsuario extends javax.swing.JFrame {
 
     public void init(){
         jLNome.setText(usuario.getNickname());
+        
+        jPAreaTroca.removeAll();
+        BemVindo bv = new BemVindo();
+        bv.setVisible(true);
+        bv.setBounds(0,0,1235,630);
+        jPAreaTroca.add(bv);
+        revalidate();
+        repaint();
+        
     }
     
     public void iniciarBotoes(){
