@@ -8,6 +8,8 @@ package sd.com.br.gui.ambiente.funcionario;
 import javax.swing.JOptionPane;
 import sd.com.br.beans.Funcionario;
 import sd.com.br.dao.Dao;
+import sd.com.br.dao.DaoFuncionario;
+import sd.com.br.gui.Inicio;
 
 /**
  *
@@ -95,6 +97,11 @@ public class ConfiguracoesFuncionario extends javax.swing.JPanel {
         });
 
         jBExcluir.setText("Excluir");
+        jBExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBExcluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -151,12 +158,10 @@ public class ConfiguracoesFuncionario extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(75, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,6 +211,22 @@ public class ConfiguracoesFuncionario extends javax.swing.JPanel {
         }        
         
     }//GEN-LAST:event_jBSalvarActionPerformed
+
+    private void jBExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirActionPerformed
+        // TODO add your handling code here:
+        
+        DaoFuncionario df = new DaoFuncionario();
+        String resultado = df.excluir(funcionario);
+        
+        JOptionPane.showMessageDialog(this, resultado);
+        if(resultado != "ERRO!"){
+            ambiente.dispose();
+            new Inicio().setVisible(true);
+        }
+        
+        
+        
+    }//GEN-LAST:event_jBExcluirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

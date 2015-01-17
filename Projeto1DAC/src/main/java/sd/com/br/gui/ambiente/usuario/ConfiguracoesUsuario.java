@@ -264,6 +264,8 @@ public class ConfiguracoesUsuario extends javax.swing.JPanel {
             new Inicio().setVisible(true);
         }
         
+        
+        
     }//GEN-LAST:event_jBExcluirActionPerformed
 
 

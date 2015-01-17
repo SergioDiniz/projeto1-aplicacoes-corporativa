@@ -54,4 +54,22 @@ public class DaoFuncionario {
         
     }
     
+    public String excluir(Funcionario funcionario){
+        
+        try {
+            funcionario.setPrefeituras(null);
+
+            entity.getTransaction().begin();
+            entity.remove(entity.merge(funcionario));
+            entity.getTransaction().commit();        
+            return "Excluido com Sucesso.";
+        } catch (Exception e) {
+        }
+        
+        
+        return "ERRO!";
+        
+    }
+    
+    
 }
