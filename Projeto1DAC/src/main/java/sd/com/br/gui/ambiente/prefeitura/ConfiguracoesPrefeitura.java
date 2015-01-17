@@ -201,6 +201,9 @@ if((jTNome.getText().length() > 0) && (jTEmail.getText().length() > 0) && (jTSen
                 Dao dao = new Dao();
                 dao.atualizar(prefeitura);
                 JOptionPane.showMessageDialog(this, "Atualização realizado com sucesso.");
+                
+                new AmbientePrefeitura(prefeitura).setVisible(true);
+                ambiente.dispose();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Dados invalidos ou em uso por outra Prefeitura!");
             }
@@ -208,6 +211,9 @@ if((jTNome.getText().length() > 0) && (jTEmail.getText().length() > 0) && (jTSen
         }else {
             JOptionPane.showMessageDialog(this, "Preencha todos os campos corretamente!");
         }
+
+        revalidate();
+        repaint();
                 
     }//GEN-LAST:event_jBSalvarActionPerformed
 

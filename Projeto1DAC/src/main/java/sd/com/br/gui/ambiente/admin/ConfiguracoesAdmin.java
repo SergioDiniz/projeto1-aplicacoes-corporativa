@@ -148,6 +148,8 @@ public class ConfiguracoesAdmin extends javax.swing.JPanel {
                 Dao dao = new Dao();
                 dao.atualizar(administrador);
                 JOptionPane.showMessageDialog(this, "Atualização realizado com sucesso.");
+                
+                
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Dados invalidos ou em uso por outra Prefeitura!");
             }
@@ -156,6 +158,9 @@ public class ConfiguracoesAdmin extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(this, "Preencha todos os campos corretamente!");
         }
+        
+        revalidate();
+        repaint();
         
     }//GEN-LAST:event_jBSalvarActionPerformed
 

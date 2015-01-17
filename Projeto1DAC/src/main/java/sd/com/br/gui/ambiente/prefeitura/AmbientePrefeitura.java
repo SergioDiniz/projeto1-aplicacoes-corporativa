@@ -166,7 +166,7 @@ public class AmbientePrefeitura extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel1.setText("Bem Vindo");
+        jLabel1.setText("Bem-Vindo");
 
         jLNome.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLNome.setForeground(new java.awt.Color(255, 208, 0));

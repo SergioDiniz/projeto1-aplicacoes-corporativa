@@ -65,7 +65,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         jLabel4.setText("Cidade: ");
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel5.setText("Estado: ");
+        jLabel5.setText("Sigla do Estado: ");
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel6.setText("Informações sobre endereço.");
@@ -86,7 +86,6 @@ public class CadastroUsuario extends javax.swing.JFrame {
         jTEstado.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jBCadastrar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jBCadastrar.setForeground(new java.awt.Color(0, 102, 204));
         jBCadastrar.setText("Cadastrar");
         jBCadastrar.setBorder(null);
         jBCadastrar.setBorderPainted(false);
@@ -100,8 +99,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel7.setText("Cadastrar Novo Usuario");
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 51, 51));
+        jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton1.setText("cancelar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,6 +111,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -152,12 +151,11 @@ public class CadastroUsuario extends javax.swing.JFrame {
                         .addGap(50, 50, 50)
                         .addComponent(jTEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89)
+                        .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
-                .addGap(50, 50, 50))
-            .addComponent(jSeparator1)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,12 +187,10 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addComponent(jTEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jButton1)))
-                .addGap(25, 25, 25))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28))
         );
 
         pack();

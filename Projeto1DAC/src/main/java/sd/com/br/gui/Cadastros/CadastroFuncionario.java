@@ -76,7 +76,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jTNome.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jBCadastrar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jBCadastrar.setForeground(new java.awt.Color(0, 51, 255));
         jBCadastrar.setText("Cadastrar");
         jBCadastrar.setPreferredSize(new java.awt.Dimension(95, 33));
         jBCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -85,8 +84,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             }
         });
 
-        jBCancelar.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jBCancelar.setForeground(new java.awt.Color(255, 51, 51));
+        jBCancelar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jBCancelar.setText("cancelar");
         jBCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,13 +123,13 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                         .addGap(50, 50, 50)
                         .addComponent(jTSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBCancelar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(82, 82, 82)
-                        .addComponent(jLabel7)))
+                        .addComponent(jLabel7))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(41, 41, 41))
         );
         jPanel1Layout.setVerticalGroup(
@@ -157,8 +155,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 .addComponent(jTSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBCancelar))
+                    .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26))
         );
 

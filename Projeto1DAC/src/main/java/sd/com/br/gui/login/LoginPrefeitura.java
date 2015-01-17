@@ -160,7 +160,6 @@ public class LoginPrefeitura extends javax.swing.JFrame {
 
             if (p != null){
                 if(p.isAtivo() == true){
-                    JOptionPane.showMessageDialog(rootPane, "Bem-Vindo!");
                     this.dispose();
                     inicio.dispose();
                     new AmbientePrefeitura(p).setVisible(true);

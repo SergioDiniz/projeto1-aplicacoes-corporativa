@@ -248,7 +248,11 @@ public class ConfiguracoesUsuario extends javax.swing.JPanel {
                 Dao dao = new Dao();
                 dao.atualizar(usuario);
 
-                JOptionPane.showMessageDialog(this, "Atualizado com sucesso!");
+                JOptionPane.showMessageDialog(this, "Atualização realizado com sucesso.");
+                
+                new AmbienteUsuario(usuario).setVisible(true);
+                ambiente.dispose();
+                
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Dados invalidos ou em uso por outro usuario!");
             }
@@ -257,6 +261,8 @@ public class ConfiguracoesUsuario extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Preencha todos os campos corretamente!");
         }
         
+        revalidate();
+        repaint();
         
     }//GEN-LAST:event_jBAtualizarActionPerformed
 

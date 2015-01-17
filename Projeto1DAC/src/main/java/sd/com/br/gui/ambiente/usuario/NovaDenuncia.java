@@ -220,6 +220,13 @@ public class NovaDenuncia extends javax.swing.JPanel {
             
             JOptionPane.showMessageDialog(jBSalvar, resultado);
             
+            jTCidade.setText("");
+            jTEstado.setText("");
+            jTRua.setText("");
+            jTNumero.setText("");
+            jTBairro.setText("");
+            jTDescricao.setText("");
+            
         } else {
             JOptionPane.showMessageDialog(jPanel1, "Preencha todos os campos corretamente!");
         }

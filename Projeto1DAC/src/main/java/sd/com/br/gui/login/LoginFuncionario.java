@@ -203,7 +203,6 @@ public class LoginFuncionario extends javax.swing.JFrame {
             Funcionario f = df.login(jTEmail.getText(), jPSenha.getText(), jTCidade.getText(), jTSiglaEstado.getText());
             Cidade c = dc.pesquisarCidade(jTCidade.getText(), jTSiglaEstado.getText());
             if (f != null){
-                JOptionPane.showMessageDialog(rootPane, "Bem-Vindo!");
                 this.dispose();
                 inicio.dispose();
                 new AmbienteFuncionario(f, c).setVisible(true);

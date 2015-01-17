@@ -147,7 +147,7 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
                 .addComponent(jBAtualizarSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBConfigurar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 285, Short.MAX_VALUE)
                 .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -169,7 +169,7 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel1.setText("Bem Vindo");
+        jLabel1.setText("Bem-Vindo");
 
         jLNome.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLNome.setForeground(new java.awt.Color(255, 208, 0));
@@ -194,7 +194,7 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(3, 3, 3)
                 .addComponent(jLNome)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
@@ -271,7 +271,7 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         jPareaTroca.removeAll();
-        ConfiguracoesFuncionario cf = new ConfiguracoesFuncionario(funcionario, this);
+        ConfiguracoesFuncionario cf = new ConfiguracoesFuncionario(funcionario, this, cidade);
         cf.setVisible(true);
         cf.setBounds(0,0,1200,600);
         jPareaTroca.add(cf);

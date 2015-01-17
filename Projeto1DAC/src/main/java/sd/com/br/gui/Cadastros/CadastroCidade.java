@@ -61,7 +61,6 @@ public class CadastroCidade extends javax.swing.JFrame {
         jTSiglaEstado.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jBCadastrar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jBCadastrar.setForeground(new java.awt.Color(0, 51, 255));
         jBCadastrar.setText("Cadastrar");
         jBCadastrar.setPreferredSize(new java.awt.Dimension(95, 33));
         jBCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -70,8 +69,7 @@ public class CadastroCidade extends javax.swing.JFrame {
             }
         });
 
-        jBCancelar.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jBCancelar.setForeground(new java.awt.Color(255, 51, 51));
+        jBCancelar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jBCancelar.setText("cancelar");
         jBCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,16 +89,17 @@ public class CadastroCidade extends javax.swing.JFrame {
                         .addGap(86, 86, 86))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jBCancelar))
                             .addComponent(jLabel2)
                             .addComponent(jTSiglaEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTNome, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addGap(32, 32, 32))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,9 +116,9 @@ public class CadastroCidade extends javax.swing.JFrame {
                 .addComponent(jTSiglaEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBCancelar))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

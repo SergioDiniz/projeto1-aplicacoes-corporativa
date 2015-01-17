@@ -6,6 +6,7 @@
 package sd.com.br.gui.ambiente.funcionario;
 
 import javax.swing.JOptionPane;
+import sd.com.br.beans.Cidade;
 import sd.com.br.beans.Funcionario;
 import sd.com.br.dao.Dao;
 import sd.com.br.dao.DaoFuncionario;
@@ -22,8 +23,10 @@ public class ConfiguracoesFuncionario extends javax.swing.JPanel {
      */
     private Funcionario funcionario;
     private AmbienteFuncionario ambiente;
+    private Cidade cidade;
     
-    public ConfiguracoesFuncionario(Funcionario funcionario, AmbienteFuncionario ambiente) {
+    public ConfiguracoesFuncionario(Funcionario funcionario, AmbienteFuncionario ambiente, Cidade cidade) {
+        this.cidade = cidade;
         this.ambiente = ambiente;
         this.funcionario = funcionario;
         initComponents();
@@ -171,11 +174,16 @@ public class ConfiguracoesFuncionario extends javax.swing.JPanel {
                 Dao dao = new Dao();
                 dao.atualizar(funcionario);
 
-                JOptionPane.showMessageDialog(this, "Cadastro realizado com sucesso.");
+                JOptionPane.showMessageDialog(this, "Atualização realizado com sucesso.");
+                new AmbienteFuncionario(funcionario, cidade).setVisible(true);
+                ambiente.dispose();
+                
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Dados invalidos ou em uso por outro usuario!");
             }
             
+            revalidate();
+            repaint();
             
         } else {
             JOptionPane.showMessageDialog(this, "Preencha todos os campos corretamente!");
