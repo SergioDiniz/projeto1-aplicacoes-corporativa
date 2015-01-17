@@ -57,6 +57,7 @@ public class AmbientePrefeitura extends javax.swing.JFrame {
         jBSair = new javax.swing.JButton();
         jBRemoverFuncionario = new javax.swing.JButton();
         jBTodosFuncionarios = new javax.swing.JButton();
+        jBConfiguracoes = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jPAreaTroca = new javax.swing.JPanel();
 
@@ -98,6 +99,14 @@ public class AmbientePrefeitura extends javax.swing.JFrame {
             }
         });
 
+        jBConfiguracoes.setToolTipText("Denuncias Realizadas");
+        jBConfiguracoes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jBConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBConfiguracoesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPAreaMenuLayout = new javax.swing.GroupLayout(jPAreaMenu);
         jPAreaMenu.setLayout(jPAreaMenuLayout);
         jPAreaMenuLayout.setHorizontalGroup(
@@ -108,7 +117,9 @@ public class AmbientePrefeitura extends javax.swing.JFrame {
                 .addComponent(jBRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jBTodosFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jBConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPAreaMenuLayout.setVerticalGroup(
@@ -117,6 +128,7 @@ public class AmbientePrefeitura extends javax.swing.JFrame {
             .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jBRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jBTodosFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jBConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPAreaTroca.setBackground(new java.awt.Color(255, 255, 255));
@@ -215,6 +227,19 @@ public class AmbientePrefeitura extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jBTodosFuncionariosActionPerformed
 
+    private void jBConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConfiguracoesActionPerformed
+        // TODO add your handling code here:
+
+        jPAreaTroca.removeAll();
+        ConfiguracoesPrefeitura conf = new ConfiguracoesPrefeitura(prefeitura, this);
+        conf.setVisible(true);
+        conf.setBounds(0,0,1366,600);
+        jPAreaTroca.add(conf);
+        revalidate();
+        repaint();
+
+    }//GEN-LAST:event_jBConfiguracoesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -251,6 +276,7 @@ public class AmbientePrefeitura extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBConfiguracoes;
     private javax.swing.JButton jBNovoFuncionario;
     private javax.swing.JButton jBRemoverFuncionario;
     private javax.swing.JButton jBSair;

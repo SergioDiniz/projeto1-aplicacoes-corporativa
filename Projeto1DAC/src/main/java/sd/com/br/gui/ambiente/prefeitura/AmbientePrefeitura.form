@@ -85,7 +85,9 @@
                       <Component id="jBRemoverFuncionario" min="-2" pref="104" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jBTodosFuncionarios" min="-2" pref="104" max="-2" attributes="0"/>
-                      <EmptySpace pref="165" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jBConfiguracoes" min="-2" pref="104" max="-2" attributes="0"/>
+                      <EmptySpace pref="43" max="32767" attributes="0"/>
                       <Component id="jBSair" min="-2" pref="104" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -96,6 +98,7 @@
                   <Component id="jBSair" min="-2" pref="64" max="-2" attributes="0"/>
                   <Component id="jBRemoverFuncionario" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                   <Component id="jBTodosFuncionarios" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                  <Component id="jBConfiguracoes" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -142,6 +145,17 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBTodosFuncionariosActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jBConfiguracoes">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Denuncias Realizadas"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor Padr&#xe3;o"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBConfiguracoesActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

@@ -176,11 +176,10 @@ public class DaoPrefeitura {
             prefeitura.setCidade(null);
 
             entity.getTransaction().begin();
-            entity.merge(prefeitura);
-            entity.remove(prefeitura);
+            entity.remove(entity.merge(prefeitura));
             entity.getTransaction().commit();   
             
-            return "OK!";
+            return "Excluido com sucesso!";
             
         } catch (Exception e) {
         }
