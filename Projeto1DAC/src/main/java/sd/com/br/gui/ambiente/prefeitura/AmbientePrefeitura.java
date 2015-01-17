@@ -35,7 +35,7 @@ public class AmbientePrefeitura extends javax.swing.JFrame {
     public void iniciarBotoes(){
         Icon iconNovo = new ImageIcon("src/main/java/sd/com/br/gui/img/novoFuncionario.jpg");
         Icon iconRemover = new ImageIcon("src/main/java/sd/com/br/gui/img/removerFuncionario.jpg");
-        Icon iconListar = new ImageIcon("src/main/java/sd/com/br/gui/img/todosFuncionarios.jpg");
+        Icon iconListar = new ImageIcon("src/main/java/sd/com/br/gui/img/tudosFuncionarios.jpg");
         Icon iconConf = new ImageIcon("src/main/java/sd/com/br/gui/img/configuracoes.jpg");
         Icon iconLogo = new ImageIcon("src/main/java/sd/com/br/gui/img/logo.png");
         Icon iconSair = new ImageIcon("src/main/java/sd/com/br/gui/img/sair.jpg");
