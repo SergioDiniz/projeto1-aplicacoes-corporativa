@@ -29,6 +29,7 @@ public class AmbienteUsuario extends javax.swing.JFrame {
         
        
         initComponents();
+        init();
         iniciarBotoes();
         
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -37,18 +38,23 @@ public class AmbienteUsuario extends javax.swing.JFrame {
        JOptionPane.showMessageDialog(rootPane, "Bem-Vindo!"); 
     }
 
+    public void init(){
+        jLNome.setText(usuario.getNickname());
+    }
     
     public void iniciarBotoes(){
         Icon iconEscrever = new ImageIcon("src/main/java/sd/com/br/gui/img/escrever.jpg");
         Icon iconPesquisar = new ImageIcon("src/main/java/sd/com/br/gui/img/pesquisar.jpg");
         Icon iconRealizadas = new ImageIcon("src/main/java/sd/com/br/gui/img/realizadas.jpg");
         Icon iconSair = new ImageIcon("src/main/java/sd/com/br/gui/img/sair.jpg");
+        Icon iconLogo = new ImageIcon("src/main/java/sd/com/br/gui/img/logo.png");
         Icon iconConfig = new ImageIcon("src/main/java/sd/com/br/gui/img/configuracoes.jpg");
         
         jBNovaDenuncia.setIcon(iconEscrever);
         jBPesquisarCidade.setIcon(iconPesquisar);
         jBDenunciasRealizadas.setIcon(iconRealizadas);
         jBConfiguracoes.setIcon(iconConfig);
+        jLLogo.setIcon(iconLogo);
         jBSair.setIcon(iconSair);        
     }
     
@@ -64,12 +70,16 @@ public class AmbienteUsuario extends javax.swing.JFrame {
 
         jPConteiner = new javax.swing.JPanel();
         jPAreaTroca = new javax.swing.JPanel();
-        jSeparator1 = new javax.swing.JSeparator();
+        jPanel1 = new javax.swing.JPanel();
         jBNovaDenuncia = new javax.swing.JButton();
         jBPesquisarCidade = new javax.swing.JButton();
         jBDenunciasRealizadas = new javax.swing.JButton();
-        jBSair = new javax.swing.JButton();
         jBConfiguracoes = new javax.swing.JButton();
+        jBSair = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLLogo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLNome = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,12 +92,14 @@ public class AmbienteUsuario extends javax.swing.JFrame {
         jPAreaTroca.setLayout(jPAreaTrocaLayout);
         jPAreaTrocaLayout.setHorizontalGroup(
             jPAreaTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 645, Short.MAX_VALUE)
         );
         jPAreaTrocaLayout.setVerticalGroup(
             jPAreaTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 441, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
+
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
         jBNovaDenuncia.setToolTipText("Nova Denuncia");
         jBNovaDenuncia.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -113,14 +125,6 @@ public class AmbienteUsuario extends javax.swing.JFrame {
             }
         });
 
-        jBSair.setToolTipText("Sair");
-        jBSair.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jBSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBSairActionPerformed(evt);
-            }
-        });
-
         jBConfiguracoes.setToolTipText("Denuncias Realizadas");
         jBConfiguracoes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
@@ -129,49 +133,103 @@ public class AmbienteUsuario extends javax.swing.JFrame {
             }
         });
 
+        jBSair.setToolTipText("Sair");
+        jBSair.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jBSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSairActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBDenunciasRealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBPesquisarCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBNovaDenuncia, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jBNovaDenuncia, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBPesquisarCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBDenunciasRealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setText("Bem Vindo");
+
+        jLNome.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLNome.setForeground(new java.awt.Color(255, 208, 0));
+        jLNome.setText("Sergio Diniz");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLNome))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addGap(3, 3, 3)
+                .addComponent(jLNome)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPConteinerLayout = new javax.swing.GroupLayout(jPConteiner);
         jPConteiner.setLayout(jPConteinerLayout);
         jPConteinerLayout.setHorizontalGroup(
             jPConteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1)
             .addGroup(jPConteinerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPConteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPConteinerLayout.createSequentialGroup()
-                        .addComponent(jBNovaDenuncia, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBPesquisarCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBDenunciasRealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                        .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPAreaTroca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPAreaTroca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPConteinerLayout.setVerticalGroup(
             jPConteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPConteinerLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(jPConteinerLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addGroup(jPConteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBNovaDenuncia, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBPesquisarCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBDenunciasRealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPAreaTroca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPAreaTroca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPConteiner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPConteiner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +253,7 @@ public class AmbienteUsuario extends javax.swing.JFrame {
         jPAreaTroca.removeAll();
         NovaDenuncia nd = new NovaDenuncia(usuario);
         nd.setVisible(true);
-        nd.setBounds(0,0,1366,600);
+        nd.setBounds(0,0,1200,600);
         jPAreaTroca.add(nd);
         revalidate();
         repaint();
@@ -208,7 +266,7 @@ public class AmbienteUsuario extends javax.swing.JFrame {
         jPAreaTroca.removeAll();
         PesquisarCidade pc = new PesquisarCidade();
         pc.setVisible(true);
-        pc.setBounds(0,0,1366,600);
+        pc.setBounds(0,0,1200,600);
         jPAreaTroca.add(pc);
         revalidate();
         repaint();
@@ -221,7 +279,7 @@ public class AmbienteUsuario extends javax.swing.JFrame {
         jPAreaTroca.removeAll();
         DenunciasRealizadas dr = new DenunciasRealizadas(usuario.getEmail());
         dr.setVisible(true);
-        dr.setBounds(0,0,1366,600);
+        dr.setBounds(0,0,1200,600);
         jPAreaTroca.add(dr);
         revalidate();
         repaint();
@@ -234,7 +292,7 @@ public class AmbienteUsuario extends javax.swing.JFrame {
         jPAreaTroca.removeAll();
         ConfiguracoesUsuario conf = new ConfiguracoesUsuario(usuario, this);
         conf.setVisible(true);
-        conf.setBounds(0,0,1366,600);
+        conf.setBounds(0,0,1200,600);
         jPAreaTroca.add(conf);
         revalidate();
         repaint();        
@@ -282,8 +340,12 @@ public class AmbienteUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jBNovaDenuncia;
     private javax.swing.JButton jBPesquisarCidade;
     private javax.swing.JButton jBSair;
+    private javax.swing.JLabel jLLogo;
+    private javax.swing.JLabel jLNome;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPAreaTroca;
     private javax.swing.JPanel jPConteiner;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

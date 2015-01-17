@@ -7,6 +7,7 @@ package sd.com.br.gui.ambiente.funcionario;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 import sd.com.br.beans.Cidade;
 import sd.com.br.beans.Funcionario;
 import sd.com.br.dao.DaoCidade;
@@ -29,30 +30,38 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
         this.cidade = cidade;
         initComponents();
         iniciarBotoes();
+        init();
         this.setExtendedState(MAXIMIZED_BOTH);
+    }
+    
+    public void init(){
+        jLNome.setText(funcionario.getNome());
     }
     
     public void iniciarBotoes(){
         
         Icon iconAcompanhar = new ImageIcon("src/main/java/sd/com/br/gui/img/acompanharDenuncia.jpg");
         Icon iconAtualizar = new ImageIcon("src/main/java/sd/com/br/gui/img/atualizarDenuncia.jpg");
-        Icon iconDenunciar = new ImageIcon("src/main/java/sd/com/br/gui/img/denunciarDenuncia.jpg");
         Icon iconSair = new ImageIcon("src/main/java/sd/com/br/gui/img/sair.jpg");
         Icon iconConfig = new ImageIcon("src/main/java/sd/com/br/gui/img/configuracoes.jpg");
+        Icon iconLogo = new ImageIcon("src/main/java/sd/com/br/gui/img/logo.png");
         
         
         jBAcompanharDenuncias.setIcon(iconAcompanhar);
         jBAtualizarSituacao.setIcon(iconAtualizar);
-        jBDenunciarDenuncia.setIcon(iconDenunciar);
         jBConfigurar.setIcon(iconConfig);
-        jBSair.setIcon(iconSair); 
+        jLLogo.setIcon(iconLogo);
+        jBSair.setIcon(iconSair);
+        
+
+        
         
     }
     
-    public void atualizarCidade(){
-        DaoCidade dc = new DaoCidade();
-        cidade = dc.atualizarObjCidade(cidade);
-    }
+//    public void atualizarCidade(){
+//        DaoCidade dc = new DaoCidade();
+//        cidade = dc.atualizarObjCidade(cidade);
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,16 +76,19 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
         jPAreaMenu = new javax.swing.JPanel();
         jBAcompanharDenuncias = new javax.swing.JButton();
         jBAtualizarSituacao = new javax.swing.JButton();
-        jBDenunciarDenuncia = new javax.swing.JButton();
         jBSair = new javax.swing.JButton();
         jBConfigurar = new javax.swing.JButton();
         jPareaTroca = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLLogo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLNome = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPAreaMenu.setBackground(new java.awt.Color(255, 255, 255));
+        jPAreaMenu.setBackground(new java.awt.Color(102, 102, 102));
 
         jBAcompanharDenuncias.setToolTipText("Acompanhar Denuncias");
         jBAcompanharDenuncias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -94,14 +106,6 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
             }
         });
 
-        jBDenunciarDenuncia.setToolTipText("Denuncia Conteudo Improprio em Denuncia");
-        jBDenunciarDenuncia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBDenunciarDenuncia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBDenunciarDenunciaActionPerformed(evt);
-            }
-        });
-
         jBSair.setToolTipText("Sair");
         jBSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBSair.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +114,7 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
             }
         });
 
-        jBConfigurar.setToolTipText("Denuncia Conteudo Improprio em Denuncia");
+        jBConfigurar.setToolTipText("Configurações");
         jBConfigurar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBConfigurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,24 +126,30 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
         jPAreaMenu.setLayout(jPAreaMenuLayout);
         jPAreaMenuLayout.setHorizontalGroup(
             jPAreaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPAreaMenuLayout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addGroup(jPAreaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBAcompanharDenuncias, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBAtualizarSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBConfigurar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
             .addGroup(jPAreaMenuLayout.createSequentialGroup()
-                .addComponent(jBAcompanharDenuncias, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jBAtualizarSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jBDenunciarDenuncia, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jBConfigurar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
-                .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPAreaMenuLayout.setVerticalGroup(
             jPAreaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jBAcompanharDenuncias, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jBAtualizarSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jBDenunciarDenuncia, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jBConfigurar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPAreaMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jBAcompanharDenuncias, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBAtualizarSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBConfigurar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 271, Short.MAX_VALUE)
+                .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
 
         jPareaTroca.setBackground(new java.awt.Color(255, 255, 255));
@@ -152,7 +162,41 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
         );
         jPareaTrocaLayout.setVerticalGroup(
             jPareaTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 313, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setText("Bem Vindo");
+
+        jLNome.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLNome.setForeground(new java.awt.Color(255, 208, 0));
+        jLNome.setText("Sergio Diniz");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLNome))
+                .addContainerGap(512, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLNome)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -160,20 +204,19 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPAreaMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPareaTroca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(jPAreaMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPareaTroca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPAreaMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPareaTroca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPAreaMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPareaTroca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -192,11 +235,11 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
 
     private void jBAcompanharDenunciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAcompanharDenunciasActionPerformed
         // TODO add your handling code here:
-        atualizarCidade();
+//        atualizarCidade();
         jPareaTroca.removeAll();
         AcompanharDenuncia ad = new AcompanharDenuncia(cidade);
         ad.setVisible(true);
-        ad.setBounds(0,0,1366,600);
+        ad.setBounds(0,0,1200,600);
         jPareaTroca.add(ad);
         revalidate();
         repaint();
@@ -209,16 +252,12 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
         jPareaTroca.removeAll();
         AtualizarDenuncia ad = new AtualizarDenuncia(cidade);
         ad.setVisible(true);
-        ad.setBounds(0,0,1366,600);
+        ad.setBounds(0,0,1200,600);
         jPareaTroca.add(ad);
         revalidate();
         repaint();
         
     }//GEN-LAST:event_jBAtualizarSituacaoActionPerformed
-
-    private void jBDenunciarDenunciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDenunciarDenunciaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBDenunciarDenunciaActionPerformed
 
     private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed
         // TODO add your handling code here:
@@ -234,7 +273,7 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
         jPareaTroca.removeAll();
         ConfiguracoesFuncionario cf = new ConfiguracoesFuncionario(funcionario, this);
         cf.setVisible(true);
-        cf.setBounds(0,0,1366,600);
+        cf.setBounds(0,0,1200,600);
         jPareaTroca.add(cf);
         revalidate();
         repaint();
@@ -280,10 +319,13 @@ public class AmbienteFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton jBAcompanharDenuncias;
     private javax.swing.JButton jBAtualizarSituacao;
     private javax.swing.JButton jBConfigurar;
-    private javax.swing.JButton jBDenunciarDenuncia;
     private javax.swing.JButton jBSair;
+    private javax.swing.JLabel jLLogo;
+    private javax.swing.JLabel jLNome;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPAreaMenu;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPareaTroca;
     // End of variables declaration//GEN-END:variables
 }
