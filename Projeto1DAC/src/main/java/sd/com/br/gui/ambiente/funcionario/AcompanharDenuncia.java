@@ -25,14 +25,15 @@ public class AcompanharDenuncia extends javax.swing.JPanel {
     public AcompanharDenuncia(Cidade cidade) {
         this.cidade = cidade;
         initComponents();
+        atualizarCidade();
         init();
-//        atualizarCidade();
+        
     }
     
-//    public void atualizarCidade(){
-//        DaoCidade dc = new DaoCidade();
-//        cidade = dc.atualizarObjCidade(cidade);
-//    }    
+    public void atualizarCidade(){
+        DaoCidade dc = new DaoCidade();
+        cidade = dc.atualizarObjCidade(cidade);
+    }    
     
     
     public void init(){
@@ -65,6 +66,9 @@ public class AcompanharDenuncia extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(jPanel1, "Nenhuma denuncia para sua cidade");
             
         }
+        
+        revalidate();
+        repaint();
         
     }
     
